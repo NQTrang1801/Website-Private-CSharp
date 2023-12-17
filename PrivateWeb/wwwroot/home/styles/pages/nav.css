@@ -1,0 +1,125 @@
+/* NAV BAR */
+/* Menu icon */
+.menu-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 400px;
+  height: 100%;
+
+  background-color: #f6f1eb;
+  color: #444444;
+  z-index: 999;
+  left: -500px;
+  transition: 0.4s ease-in-out;
+  overflow: auto;
+}
+
+#overlay {
+  position: fixed;
+  left: 0;
+  right: 0px;
+  top: 0;
+  bottom: 0;
+
+  background-color: rgba(0, 0, 0, 0.8);
+  display: none;
+  z-index: 100;
+  overflow: hidden;
+}
+
+.menu-navbar div {
+  padding: 44px 0 24px 50px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.menu-navbar span {
+  font-size: 20px;
+  position: relative;
+}
+
+.menu-navbar span > a:after {
+  content: "";
+  position: absolute;
+  background-color: #444444;
+  height: 1.2px;
+  width: 0;
+  bottom: -10px;
+  left: 0;
+  transition: 0.3s;
+}
+
+.menu-navbar .nav--categories > li span a:hover:after {
+  width: 100%;
+}
+
+.menu-navbar .nav--categories > li span a:hover {
+  font-weight: bold;
+}
+
+.menu-navbar li:hover .nav--sub-categories {
+  display: block;
+}
+
+.nav--sub-categories li {
+  height: 0;
+  font-size: 12px;
+}
+
+.nav--sub-categories li:hover {
+  font-weight: bold;
+}
+
+.nav--sub-categories {
+  display: none;
+  width: 110%;
+}
+
+.menu-navbar img {
+  width: 12px;
+}
+
+.menu-navbar .nav--categories > li {
+  list-style: none;
+  background-color: rgb(244, 242, 238);
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.nav--categories {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 40px;
+}
+
+.nav--categories li {
+  padding: 14px 50px;
+}
+
+.nav--categories li:hover {
+  background-color: #fcf9f5;
+}
+
+.nav--categories li img {
+  opacity: 0;
+}
+
+.nav--categories li:hover img {
+  opacity: 1;
+}
+
+.nav--infor {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.nav--infor a {
+  color: #333333;
+  font-size: 12px;
+  padding: 8px 50px;
+}
+
+/* .delivery-shipping-container div {
+  display: flex;
+} */

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="styles/shared/general.css">
+    <link rel="stylesheet" href="styles/pages/index.css">
+    <link rel="stylesheet" href="styles/pages/nav.css">
+    <link rel="stylesheet" href="styles/pages/checkout.css">
+    <link rel="stylesheet" href="styles/pages/footer.css">
+    <link rel="stylesheet" href="styles/pages/media-index.css">
+    <link rel="stylesheet" href="styles/pages/media-cart.css">
+    <link rel="stylesheet" href="styles/pages/media-footer.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="private-header">
+            <div class="private-header-left-section">
+                <div class="header-menu js-menu-btn">
+                    <i class="ri-menu-line"></i>
+                    <span>Menu</span>
+                </div>
+                <div class="header-search">
+                    <i class="ri-search-line"></i>
+                    <span>Search</span>
+                </div>
+            </div>
+    
+            <div class="private-header-middle-section">
+                <a href="index.html" class="title">Private</a>
+            </div>
+    
+            <div class="private-header-right-section">
+                <a href="account.html">
+                    <i class="ri-user-line icon--small"></i>
+                    <span>Account</span>
+                </a>
+                <a href="cart.html" class="cart-wrapper js-cart-wrapper">
+                    <i class="ri-shopping-bag-line icon--small" data-content="0">
+                        <nav class="cart-navbar js-cart-navbar">
+                            <div class="cart-content js-cart-content">
+                                
+                            </div>
+    
+                            <div class="cart-calculate-price">
+                                <div class="cart-price">
+                                    <p>Subtotal:</p>
+                                    <p>VND <span></span></p>
+                                </div>
+                                <div class="cart-checkout">
+                                    CHECKOUT
+                                    (<span></span>)
+                                </div>
+                            </div>
+                        </nav>
+                    </i>
+                    <span>Cart</span>
+                </a>
+            </div>
+        </div>
+    
+        <!-- Search container -->
+        <nav class="search-navbar js-search-navbar">
+            <div class="search-container">
+                <div class="search-input">
+                    <input type="text" placeholder="Search">
+                    <i class="ri-search-line search-icon"></i>
+                </div>
+    
+                <div class="search-hint">
+                    <p>Trending Searches:</p>
+                    <div>
+                        <a href="categories.html?data=jeans">
+                            <i class="ri-search-line"></i>
+                            Jeans
+                        </a>
+                    </div>
+                    <div>
+                        <a href="categories.html?data=jackets">
+                            <i class="ri-search-line"></i>
+                            Jackets
+                        </a>
+                    </div>
+                    <div>
+                        <a href="categories.html?data=bags">
+                            <i class="ri-search-line"></i>
+                            Bags
+                        </a>
+                    </div>
+                    <div>
+                        <a href="categories.html?data=hoodie">
+                            <i class="ri-search-line"></i>
+                            Hoodie
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="search-matched-title">
+                    <p>Popular Categories</p>
+                </div>
+    
+                <div class="search-matched-categories">
+                    <div class="categories-item">
+                        <img src="pictures/display-products/female-model.jpg" alt="">
+                        <div class="categories-name">
+                            <p>Women</p>
+                            <a href="categories.html?data=women">Shop now</a>
+                        </div>
+                    </div>
+                    <div class="categories-item">
+                        <img src="pictures/display-products/male-model.jpg" alt="">
+                        <div class="categories-name">
+                            <p>Men</p>
+                            <a href="categories.html?data=men">Shop now</a>
+                        </div>
+                    </div>
+                    <div class="categories-item">
+                        <img src="pictures/display-products/children-model.jpg" alt="">
+                        <div class="categories-name">
+                            <p>Kids</p>
+                            <a href="categories.html?data=kids">Shop now</a>
+                        </div>
+                    </div>
+                    <div class="categories-item">
+                        <img src="pictures/display-products/home-decoration.jpg" alt="">
+                        <div class="categories-name">
+                            <p>Home</p>
+                            <a href="categories.html?data=home">Shop now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    
+        <!-- Menu container -->
+        <nav class="menu-navbar js-menu-navbar">
+            <div class="nav-close js-nav-close">
+                <i class="ri-close-line"></i>
+                Close
+            </div>
+            <ul class="nav--categories">
+                <li>
+                    <span for="btn-1"><a href="categories.html?data=women">Women</a></span>
+                    <i class="ri-arrow-right-s-line"></i>
+                </li>
+                <li>
+                    <span><a href="categories.html?data=men">Men</a></span>
+                    <i class="ri-arrow-right-s-line"></i>
+                </li>
+                <li>
+                    <span><a href="categories.html?data=kids and baby">Kids & Baby</a></span>
+                    <i class="ri-arrow-right-s-line"></i>
+                </li>
+                <li>
+                    <span><a href="categories.html?data=home">Home</a></span>
+                    <i class="ri-arrow-right-s-line"></i>
+                </li>
+                <li>
+                    <span><a href="categories.html?data=gifts">Gifts</a></span>
+                    <i class="ri-arrow-right-s-line"></i>
+                </li>
+                <li>
+                    <span><a href="categories.html?data=new">New</a></span>
+                    <i class="ri-arrow-right-s-line"></i>
+                </li>
+                <li>
+                    <span><a href="categories.html?data=sale">Sale</a></span>
+                    <i class="ri-arrow-right-s-line"></i>
+                </li>
+            </ul>
+            <ul class="nav--infor">
+                <li>
+                    <a href="">About Private</a>
+                </li>
+                <li>
+                    <a href="">Services</a>
+                </li>
+                <li>
+                    <a href="">Call us</a>
+                </li>
+                <li>
+                    <a href="">Find a Store</a>
+                </li>
+            </ul>
+        </nav>
+        <div id="overlay"></div>
+    </header>
+
+    <main>
+        <form action="">
+            <div class="container">
+                <div class="l-container">
+                    <div class="l-top-container">
+                        <p>DELIVERY</p>
+                    </div>
+                    <div class="l-mid-container">
+                        <p><i class="ri-truck-line"></i> Ship to an address</p>
+                    </div>
+                    <div class="l-bot-container">
+                        <div class="info-wraper">
+                            <p>Information</p>
+                            <div class="gender">
+                                <span><input type="radio" name="gen"> male</span>
+                                <span><input type="radio" name="gen"> female</span>
+                                <span><input type="radio" name="gen"> other</span>
+                            </div>
+                            <div class="contact">
+                                <input type="text" placeholder="Name">
+                                <input type="text" placeholder="Phone">
+                            </div>
+                        </div>
+                        <div class="adress-wraper">
+                            <p>Shipping address</p>
+                            <div class="info-address">
+                                <select name="City" id="">
+                                    <option value="">City</option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                                <select name="District" id="">
+                                    <option value="">District</option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                                <select name="Wards" id="">
+                                    <option value="">Wards</option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                    <option value=""></option>
+                                </select>
+                                <input type="text" placeholder="Address">
+                            </div>
+                            <div class="requirements">
+                                <input type="text" placeholder="Other requirements">
+                                <div class="requirements-check">
+                                    <span><input type="checkbox"> Print invoice</span>
+                                    <span><input type="radio" name="pay"> Cash on delivery</span>
+                                    <span><input type="radio" name="pay"> Digital payment</span>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="r-container">
+                    <div class="r-container-head">
+                        <span>ORDER SUMMARY</span>
+                    </div>
+                    <div>
+                        <div class="inf-order">
+                            <p>Subtotal</p>
+                            <p>VND <span>0</span></p>
+                            <p>Standard Shipping</p>
+                            <p>VND <span>0</span></p>
+                            <p>Free when you <a href="">Sign in</a> or <a href="">Create an Account</a></p>
+                            <p></p>
+                            <p>Estimated Total</p>
+                            <p>VND <span>0</span></p>
+                            <p>Taxes finalized at the end of checkout</p>
+                        </div>
+                        <div class="checkout-wapper">
+                            <input type="submit" value="Order now">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </main>
+
+    <footer>
+        <div class="footer-top">
+            <div>
+                <h3>HELP</h3>
+                <p>You can <a href="#">call</a> or <a href="#">email us</a>.</p>
+                <p><a href="#">FAQ's</a></p>
+                <p><a href="#">Product Care</a></p>
+                <p><a href="#">Store</a></p>
+            </div>
+            <div>
+                <h3>SERVICE</h3>
+                <p><a href="#">Repairs</a></p>
+                <p><a href="#">Personlization</a></p>
+                <p><a href="#">Art of Gifting</a></p>
+                <p><a href="#">Download our Apps</a> </p>
+            </div>
+            <div>
+                <h3>ABOUT</h3>
+                <p><a href="#">Fashion Shows</a></p>
+                <p><a href="#">Arts & Culture</a></p>
+                <p><a href="#">Sustainability</a></p>
+                <p><a href="#">Latest News</a></p>
+                <p><a href="#">Careers</a></p>
+                <p><a href="#">Foundation Private</a></p>
+            </div>
+            <div>
+                <h3>CONNECT</h3>
+                <p><a href="account.html">Sign up</a> for first access to latest collections, campaigns and videos.</p>
+                <p><a href="#">Follow Us</a></p>
+            </div>
+        </div>
+        <div class="footer-bot">
+            <div>
+                <p><i class="ri-copyright-line"></i>Private 2023. All rights reserved</p>
+            </div>
+            <div>
+                <img src="pictures/icon/Logo.png">
+            </div>
+            <div>
+                <p>
+                    <i class="ri-facebook-fill"></i>
+                    <i class="ri-instagram-fill"></i>
+                    <i class="ri-twitter-fill"></i>
+                    <i class="ri-youtube-fill"></i>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script type="module" src="scripts/index.js"></script>
+    <script src="scripts/checkout.js"></script>
+</body>
+
+</html>

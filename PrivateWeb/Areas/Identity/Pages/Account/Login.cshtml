@@ -1,0 +1,65 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Log in";
+}
+
+
+@section Styles {
+    <link rel="stylesheet" href="~/home/styles/pages/account.css" />
+}
+
+<main>
+    <div class="account-container">
+        <div class="account">
+            <div class="form-account">
+                <div class="login-container" id="login">
+                <form method="post" id="account">
+                    <div class="top">
+                            <span>Don't have account? <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Sign Up</a></span>
+                        <header class="header-ac">Login</header>
+                    </div>
+
+                    <div>
+                        <label asp-for="Input.Email" class="form-label">Email</label>
+                        <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                        <span asp-validation-for="Input.Email" class="text-danger"></span>
+                    </div>
+
+                    <div class="mt-4">
+                        <label asp-for="Input.Password" class="form-label">Password</label>
+                        <input asp-for="Input.Password" class="form-control" autocomplete="current-password" aria-required="true" placeholder="password" />
+                        <span asp-validation-for="Input.Password" class="text-danger"></span>
+                    </div>
+
+                    <div class="block mt-4">
+                        <div>
+                             <label asp-for="Input.RememberMe" class="form-label">
+                             <input class="form-check-input" asp-for="Input.RememberMe" />
+                                   @Html.DisplayNameFor(m => m.Input.RememberMe)
+                              </label>
+                        </div>
+                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
+                    </div>
+
+                    <div class="flex items-center justify-end mt-4">
+                        <button id="login-submit" type="submit" style="padding: 8px 40px; background-color: var(--primary-color); color: var(--light-color);">Log in</button>
+                    </div>
+                </form>
+                </div>
+                <div class="create-container" id="create">
+                    
+                </div>
+            </div>
+        </div>
+        <div>
+            <img src="~/home/public/pictures/icon/Logo.png">
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    <script src="~/home/scripts/account.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+}

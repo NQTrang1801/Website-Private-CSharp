@@ -1,0 +1,70 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/home/styles/pages/account.css" />
+}
+
+<main>
+    <div class="account-container">
+        <div class="account">
+            <div class="form-account">
+            
+                 <div class="login-container" id="login">
+                    <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                        <div class="top">
+                            <span>Have an account? <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl">Sign In</a> </span>
+                            <header class="header-ac">Login</header>
+                        </div>
+                        <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+                        <div class="two-form">
+                            <div>
+                                <label asp-for="Input.FirstName">First Name</label>
+                                <input asp-for="Input.FirstName" class="form-control" autocomplete="firstname" aria-required="true" placeholder="first name" />
+                            </div>
+                            <div>
+                                <label asp-for="Input.LastName">Last Name</label>
+                                <input asp-for="Input.LastName" class="form-control" autocomplete="lastname" aria-required="true" placeholder="last name" />
+                            </div>
+                        </div>
+
+                        <div class="mt-4">
+                            <label asp-for="Input.Email">Email</label>
+                            <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true" placeholder="name@example.com" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mt-4">
+                            <label asp-for="Input.Password">Password</label>
+                            <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+
+                        <div class="mt-4">
+                            <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                            <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                            <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+                        </div>
+                        <div class="flex items-center justify-end mt-4">
+                            <button id="registerSubmit" type="submit" style="padding: 8px 40px; background-color: var(--primary-color); color: var(--light-color);">Register</button>
+
+                        </div>
+                    </form>
+                </div>
+    
+            </div>
+        </div>
+        <div>
+            <img src="~/home/public/pictures/icon/Logo.png">
+        </div>
+    </div>
+</main>
+    
+
+@section Scripts {
+    <script src="~/home/scripts/account.js"></script>
+    <partial name="_ValidationScriptsPartial" />
+}

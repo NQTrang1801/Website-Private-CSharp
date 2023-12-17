@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Red+Hat+Display:wght@300;400&display=swap');
+
+:root {
+  --primary-color: #444444;
+  --secondary-color: #696969;
+  --secondary-light-color: #b7b7b7;
+
+  --bg-color: #f6f1eb;
+  --light-color: #fffcf7;
+  --secondary-bg-color: #faf6f1;
+  --light-bg-color: rgba(255, 251, 243, 0.7);
+  --dark-bg-color: rgba(0, 0, 0, 0.8);
+
+  --font-small: 0.875em; /* pixels/16=em */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*, ::before, ::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Red Hat Display', 'Arial', sans-serif;
+  font-size: 100%;
+  letter-spacing: 2px;
+  color: var(--primary-color);
+  background-color: var(--bg-color);
+}
+
+pre {
+  font-family: 'Red Hat Display', 'Arial', sans-serif;
+  font-size: 13px;
+  text-wrap: wrap;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+li {
+  list-style: none;
+}
+
+i {
+  margin-right: 10px;
+}
+
+input::placeholder {
+  font: inherit;
+  letter-spacing: 2px;
+}

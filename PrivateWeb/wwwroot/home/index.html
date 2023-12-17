@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <link rel="stylesheet" href="styles/shared/general.css">
+  <link rel="stylesheet" href="styles/pages/index.css">
+  <link rel="stylesheet" href="styles/pages/nav.css">
+  <link rel="stylesheet" href="styles/pages/media-index.css">
+  <link rel="stylesheet" href="styles/pages/index-body.css">
+  <link rel="stylesheet" href="styles/pages/footer.css">
+  <link rel="stylesheet" href="styles/pages/media-footer.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="private-header">
+        <div class="private-header-left-section">
+            <div class="header-menu js-menu-btn">
+                <i class="ri-menu-line"></i>
+                <span>Menu</span>
+            </div>
+            <div class="header-search">
+                <i class="ri-search-line"></i>
+                <span>Search</span>
+            </div>
+        </div>
+
+        <div class="private-header-middle-section">
+            <a href="index.html" class="title">Private</a>
+        </div>
+
+        <div class="private-header-right-section">
+            <a href="account.html">
+                <i class="ri-user-line icon--small"></i>
+                <span>Account</span>
+            </a>
+            <a href="cart.html" class="cart-wrapper js-cart-wrapper">
+                <i class="ri-shopping-bag-line icon--small" data-content="0">
+                    <nav class="cart-navbar js-cart-navbar">
+                        <div class="cart-content js-cart-content">
+                            
+                        </div>
+
+                        <div class="cart-calculate-price">
+                            <div class="cart-price">
+                                <p>Subtotal:</p>
+                                <p>VND <span></span></p>
+                            </div>
+                            <div class="cart-checkout">
+                                CHECKOUT
+                                (<span></span>)
+                            </div>
+                        </div>
+                    </nav>
+                </i>
+                <span>Cart</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Search container -->
+    <nav class="search-navbar js-search-navbar">
+        <div class="search-container">
+            <div class="search-input">
+                <input type="text" placeholder="Search">
+                <i class="ri-search-line search-icon"></i>
+            </div>
+
+            <div class="search-hint">
+                <p>Trending Searches:</p>
+                <div>
+                    <a href="categories.html?data=jeans">
+                        <i class="ri-search-line"></i>
+                        Jeans
+                    </a>
+                </div>
+                <div>
+                    <a href="categories.html?data=jackets">
+                        <i class="ri-search-line"></i>
+                        Jackets
+                    </a>
+                </div>
+                <div>
+                    <a href="categories.html?data=bags">
+                        <i class="ri-search-line"></i>
+                        Bags
+                    </a>
+                </div>
+                <div>
+                    <a href="categories.html?data=hoodie">
+                        <i class="ri-search-line"></i>
+                        Hoodie
+                    </a>
+                </div>
+            </div>
+
+            <div class="search-matched-title">
+                <p>Popular Categories</p>
+            </div>
+
+            <div class="search-matched-categories">
+                <div class="categories-item">
+                    <img src="pictures/display-products/female-model.jpg" alt="">
+                    <div class="categories-name">
+                        <p>Women</p>
+                        <a href="categories.html?data=women">Shop now</a>
+                    </div>
+                </div>
+                <div class="categories-item">
+                    <img src="pictures/display-products/male-model.jpg" alt="">
+                    <div class="categories-name">
+                        <p>Men</p>
+                        <a href="categories.html?data=men">Shop now</a>
+                    </div>
+                </div>
+                <div class="categories-item">
+                    <img src="pictures/display-products/children-model.jpg" alt="">
+                    <div class="categories-name">
+                        <p>Kids</p>
+                        <a href="categories.html?data=kids">Shop now</a>
+                    </div>
+                </div>
+                <div class="categories-item">
+                    <img src="pictures/display-products/home-decoration.jpg" alt="">
+                    <div class="categories-name">
+                        <p>Home</p>
+                        <a href="categories.html?data=home">Shop now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu container -->
+    <nav class="menu-navbar js-menu-navbar">
+        <div class="nav-close js-nav-close">
+            <i class="ri-close-line"></i>
+            Close
+        </div>
+        <ul class="nav--categories">
+            <li>
+                <span for="btn-1"><a href="categories.html?data=women">Women</a></span>
+                <i class="ri-arrow-right-s-line"></i>
+            </li>
+            <li>
+                <span><a href="categories.html?data=men">Men</a></span>
+                <i class="ri-arrow-right-s-line"></i>
+            </li>
+            <li>
+                <span><a href="categories.html?data=kids and baby">Kids & Baby</a></span>
+                <i class="ri-arrow-right-s-line"></i>
+            </li>
+            <li>
+                <span><a href="categories.html?data=home">Home</a></span>
+                <i class="ri-arrow-right-s-line"></i>
+            </li>
+            <li>
+                <span><a href="categories.html?data=gifts">Gifts</a></span>
+                <i class="ri-arrow-right-s-line"></i>
+            </li>
+            <li>
+                <span><a href="categories.html?data=new">New</a></span>
+                <i class="ri-arrow-right-s-line"></i>
+            </li>
+            <li>
+                <span><a href="categories.html?data=sale">Sale</a></span>
+                <i class="ri-arrow-right-s-line"></i>
+            </li>
+        </ul>
+        <ul class="nav--infor">
+            <li>
+                <a href="">About Private</a>
+            </li>
+            <li>
+                <a href="">Services</a>
+            </li>
+            <li>
+                <a href="">Call us</a>
+            </li>
+            <li>
+                <a href="">Find a Store</a>
+            </li>
+        </ul>
+    </nav>
+    <div id="overlay"></div>
+</header>
+
+  <main>
+    <div class="private-header-video">
+      <video width="100%" controls autoplay loop>
+        <source src="videos/1104251_1080p_Standard_Teen_1920x1080.mp4">
+      </video>
+    </div>
+    <section class="first-introduce-products">
+      <div class="first-introduce-wrapper">
+        <div class="first-introduce-left">
+          <div class="introduce-left-container">
+            <a href="">
+              <img src="pictures/display-products/zara-man-jacket.jpg" alt="" height="770px">
+            </a>
+            <div class="first-introduce-left-info">
+              <p>Private New</p>
+              <a href="categories.html?data=new">SHOP NOW</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="first-introduce-right">
+          <div class="first-introduce-right-title">
+            <p>Women's Clothes</p>
+          </div>
+          <div class="first-introduce-right-cardstack">
+            <div class="cardstack">
+              <div class="cardstack-picture">
+                <div class="card-slide active">
+                  <a href="">
+                    <img src="pictures/display-products/zara-women-blazer.jpg" alt="">
+                  </a>
+                  <div class="card-slide-info">
+                    <p>Blazer Shop</p>
+                    <div>
+                      <span>1 </span>|<span> 4</span>
+                    </div>
+                  </div>
+                  <div class="cardstack-timer">
+                    <div class="cardstack-timer-run"></div>
+                  </div>
+                </div>
+
+                <div class="card-slide">
+                  <div class="card-slide-box">
+                    <a href="">
+                      <img src="pictures/display-products/zara-women-dress.jpg" alt="">
+                    </a>
+                    <div class="card-slide-info">
+                      <p>Dress Shop</p>
+                      <div>
+                        <span>2 </span>|<span> 4</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cardstack-timer">
+                    <div class="cardstack-timer-run"></div>
+                  </div>
+                </div>
+
+                <div class="card-slide">
+                  <div class="card-slide-box">
+                    <a href="">
+                      <img src="pictures/display-products/zara-women-jeans.jpg" alt="">
+                    </a>
+                    <div class="card-slide-info">
+                      <p>Jeans Shop</p>
+                      <div>
+                        <span>3 </span>|<span> 4</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cardstack-timer">
+                    <div class="cardstack-timer-run"></div>
+                  </div>
+                </div>
+
+                <div class="card-slide">
+                  <div class="card-slide-box">
+                    <a href="">
+                      <img src="pictures/display-products/zara-women-shirt-2.jpg" alt="">
+                    </a>
+                    <div class="card-slide-info">
+                      <p>Shirt Shop</p>
+                      <div>
+                        <span>4 </span>|<span> 4</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="cardstack-timer">
+                    <div class="cardstack-timer-run"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="cardstack-btn">
+                <div class="btn arrow-right">
+                  <i class="ri-arrow-right-s-line"></i>
+                </div>
+
+                <div class="btn arrow-left">
+                  <i class="ri-arrow-left-s-line"></i>
+                </div>
+
+                <div class="btn pause">
+                  <i class="ri-pause-mini-line"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="second-introduce-products">
+      <div class="second-introduce-title">
+        <h2>BIG SALE OF THE MONTH</h2>
+        <p>Now or Never</p>
+        <a href="categories.html?data=sales">Take a closer look</a>
+      </div>
+      <div class="second-introduce-content">
+        <div class="second-introduce-left">
+          <img src="pictures/display-products/female-posting.jpg" alt="">
+        </div>
+        <div class="second-introduce-right">
+          <div>
+            <a href="">
+              <img src="pictures/display-products/zara-women-shirt.jpg" alt="">
+            </a>
+            <div>
+              <p class="second-introduce-name">Shirt With Thin Stripes</p>
+              <p class="second-introduce-price"><del>87</del><del>VND</del> <span>63</span> VND</p>
+            </div>
+          </div>
+          <div>
+            <a href="">
+              <img src="pictures/display-products/hm-woman-belt.jpg" alt="">
+            </a>
+            <div>
+              <p class="second-introduce-name">3-pack Narrow Belts</p>
+              <p class="second-introduce-price"><del>87</del><del>VND</del> <span>63</span> VND</p>
+            </div>
+          </div>
+          <div>
+            <a href="">
+              <img src="pictures/display-products/hm-baby-set.jpg" alt="">
+            </a>
+            <div>
+              <p class="second-introduce-name">2-piece Cotton Set</p>
+              <p class="second-introduce-price"><del>87</del><del>VND</del> <span>63</span> VND</p>
+            </div>
+          </div>
+          <div>
+            <a href="">
+              <img src="pictures/display-products/zara-kid-shoes.jpg" alt="">
+            </a>
+            <div>
+              <p class="second-introduce-name">Slippers With Back Strap</p>
+              <p class="second-introduce-price"><del>87</del><del>VND</del> <span>63</span> VND</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="third-introduce-products">
+      <div class="third-introduce-title">
+        <h2>Our Special Products</h2>
+      </div>
+      <div class="third-introduce-content">
+        <div class="third-introduce">
+          <div>
+            <a href="categories.html?data=jackets">
+              <img src="pictures/display-products/zara-men-jacket.jpg" alt="">
+            </a>
+            <div>
+              <p class="third-introduce-name">Jackets</p>
+            </div>
+          </div>
+          <div>
+            <a href="categories.html?data=t-shirts">
+              <img src="pictures/display-products/zara-tshirt.jpg" alt="">
+            </a>
+            <div>
+              <p class="third-introduce-name">T-Shirts</p>
+            </div>
+          </div>
+          <div>
+            <a href="categories.html?data=jeans">
+              <img src="pictures/display-products/zara-jeans.jpg" alt="">
+            </a>
+            <div>
+              <p class="third-introduce-name">Jeans</p>
+            </div>
+          </div>
+          <div>
+            <a href="categories.html?data=shoes">
+              <img src="pictures/display-products/zara-shoes.jpg" alt="">
+            </a>
+            <div>
+              <p class="third-introduce-name">Shoes</p>
+            </div>
+          </div>
+          <div>
+            <a href="categories.html?data=bags">
+              <img src="pictures/display-products/zara-bag.png" alt="">
+            </a>
+            <div>
+              <p class="third-introduce-name">Bags</p>
+            </div>
+          </div>
+          <div>
+            <a href="categories.html?data=family uniforms">
+              <img src="pictures/display-products/family-uniforms.png" alt="">
+            </a>
+            <div>
+              <p class="third-introduce-name">Family Uniforms</p>
+            </div>
+          </div>
+          <div>
+            <a href="categories.html?data=gifts">
+              <img src="pictures/display-products/gift-box.jpg" alt="">
+            </a>
+            <div>
+              <p class="third-introduce-name">Gifts</p>
+            </div>
+          </div>
+          <div>
+            <a href="categories.html?data=new">
+              <img src="pictures/display-products/zara-new.jpg" alt="">
+            </a>
+            <div>
+              <p class="third-introduce-name">New</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="footer-top">
+      <div>
+        <h3>HELP</h3>
+        <p>You can <a href="#">call</a> or <a href="#">email us</a>.</p>
+        <p><a href="#">FAQ's</a></p>
+        <p><a href="#">Product Care</a></p>
+        <p><a href="#">Store</a></p>
+      </div>
+      <div>
+        <h3>SERVICE</h3>
+        <p><a href="#">Repairs</a></p>
+        <p><a href="#">Personlization</a></p>
+        <p><a href="#">Art of Gifting</a></p>
+        <p><a href="#">Download our Apps</a> </p>
+      </div>
+      <div>
+        <h3>ABOUT</h3>
+        <p><a href="#">Fashion Shows</a></p>
+        <p><a href="#">Arts & Culture</a></p>
+        <p><a href="#">Sustainability</a></p>
+        <p><a href="#">Latest News</a></p>
+        <p><a href="#">Careers</a></p>
+        <p><a href="#">Foundation Private</a></p>
+      </div>
+      <div>
+        <h3>CONNECT</h3>
+        <p><a href="account.html">Sign up</a> for first access to latest collections, campaigns and videos.</p>
+        <p><a href="#">Follow Us</a></p>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <div>
+        <p><i class="ri-copyright-line"></i>Private 2023. All rights reserved</p>
+      </div>
+      <div>
+        <img src="pictures/icon/Logo.png">
+      </div>
+      <div>
+        <p>
+          <i class="ri-facebook-fill"></i>
+          <i class="ri-instagram-fill"></i>
+          <i class="ri-twitter-fill"></i>
+          <i class="ri-youtube-fill"></i>
+        </p>
+      </div>
+    </div>
+  </footer>
+  <script type="module" src="scripts/index.js"></script>
+  <script src="scripts/index-body.js"></script>
+</body>
+
+</html>
+

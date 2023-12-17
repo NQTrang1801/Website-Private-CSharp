@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="styles/pages/index.css">
+  <link rel="stylesheet" href="styles/shared/general.css">
+  <link rel="stylesheet" href="styles/pages/media-index.css">
+  <link rel="stylesheet" href="styles/pages/nav.css">
+  <link rel="stylesheet" href="styles/pages/account.css">
+  <link rel="stylesheet" href="styles/pages/footer.css">
+  <link rel="stylesheet" href="styles/pages/media-footer.css">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+  <body>
+    <div class="account-container">
+      <div class="account">
+        <!-----------------Form box----------------->
+        <div class="form-account">
+          <!---------------dang nhap------------------------->
+          <div class="login-container" id="login">
+            <form action="">
+              <div class="top">
+                <span>Don't have account? <a href="#" onclick="create()">Sign Up</a> </span>
+                <header class="header-ac">Login</header>
+              </div>
+              <div class="input-box">
+                <input type="email" class="input-field" placeholder="Email" required="">
+              </div>
+              <div class="input-box">
+                <input type="password" class="input-field" id="logPassword" placeholder="Password" required="">
+                <div class="eye-area">
+                  <div class="eye-box" onclick="myLogPassword()">
+                    <i class="ri-eye-fill" id="eye"></i>
+                    <i class="ri-eye-off-fill" id="eye-slash"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="input-box">
+                <input type="submit" class="submit" value="Sign In">
+
+              </div>
+              <div class="two-col">
+                <div class="one">
+                  <input type="checkbox" id="login-check">
+                  <label for="login-check">Remember Me</label>
+                </div>
+                <div class="two">
+                  <label><a href="#">|Forgot password?</a> </label>
+                </div>
+              </div>
+            </form>
+          </div>
+          <!---------------dang ky------------------------->
+          <div class="create-container" id="create">
+            <form>
+              <div class="top">
+                <span>Have an account? <a href="#" onclick="login()">Sign In</a> </span>
+                <header class="header-ac">Sign Up</header>
+              </div>
+              <div class="two-form">
+                <div class="input-box">
+                  <input type="text" class="input-field" placeholder="Firstname" required="">
+                </div>
+                <div class="input-box">
+                  <input type="text" class="input-field" placeholder="Lastname" required="">
+                </div>
+              </div>
+              <div class="input-box">
+                <input type="email" class="input-field" placeholder="Email" required="">
+              </div>
+              <div class="input-box">
+                <input type="password" class="input-field" id="regPassword" placeholder="Password" required="">
+                <div class="eye-area">
+                  <div class="eye-box" onclick="myRegPassword()">
+                    <i class="ri-eye-fill" id="eye-2"></i>
+                    <i class="ri-eye-off-fill" id="eye-slash-2"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="input-box">
+                <input type="submit" class="submit" value="Create Account">
+              </div>
+              <div class="two-col">
+                <div class="one">
+                  <input type="checkbox" id="create-check">
+                  <label for="create-check">Remember Me</label>
+                </div>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <img src="pictures/display-products/children-model.jpg" style="width: 100%;" alt="">
+      </div>
+    </div>
+  </body>
+  <script type="module" src="scripts/index.js"></script>
+  <script src="scripts/account.js"></script>
+</body>
+
+</html>

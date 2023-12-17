@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"] - PrivateWeb</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PrivateWeb.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/home/styles/shared/general.css">
+    <link rel="stylesheet" href="~/home/styles/pages/index.css">
+    <link rel="stylesheet" href="~/home/styles/pages/nav.css">
+    <link rel="stylesheet" href="~/home/styles/pages/footer.css">
+    <link rel="stylesheet" href="~/home/styles/pages/media-footer.css">
+    @await RenderSectionAsync("Styles", required: false)
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <!-- HEADER -->
+    <partial name="_headerPartial.cshtml" />
+
+    @RenderBody()
+
+    <!-- FOOTER -->
+    <partial name="_footerPartial.cshtml" />
+
+    <script type="module" src="~/home/scripts/index.js"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
+
+

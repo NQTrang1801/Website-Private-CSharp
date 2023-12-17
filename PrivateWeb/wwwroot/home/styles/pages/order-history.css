@@ -1,0 +1,149 @@
+body {
+    margin-top: 84px !important;
+    height: auto !important;
+  }
+  
+  .private-header {
+    background-color: var(--light-bg-color) !important;
+    color: var(--primary-color) !important;
+  }
+  
+  .cart-navbar,
+  .search-navbar {
+    background-color: var(--secondary-bg-color) !important;
+  }
+  
+  .content {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    margin: 50px;
+    height: 1019px;
+  }
+  
+  .time-lists-wrapper {
+    background-color: var(--light-color);
+    margin: 50px 50px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .time-lists-wrapper div {
+    text-align: center;
+    margin-top: 30px;
+  }
+  
+  .order-title {
+    font-size: 24px;
+  }
+  
+  .ri-history-fill {
+    font-size: 24px;
+  }
+  
+  #time-ordered {
+    border-radius: 4px;
+    border-color: var(--secondary-light-color);
+    margin-top: 60px;
+  }
+  
+  .time-lists {
+    margin-top: 30px;
+  }
+  
+  .time-lists li {
+    margin: 30px 0;
+    cursor: pointer;
+  }
+  
+  .return {
+    cursor: pointer;
+    margin-bottom: 50px;
+  }
+  
+  .odered-products {
+    height: auto;
+    margin-top: 50px;
+  }
+  
+  .odered-products-header {
+    background-color: var(--light-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 60px;
+    
+  }
+  
+  .order-details {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px;
+    border-radius: 6px;
+  }
+  
+  .light-color {
+    color: var(--secondary-light-color);
+  }
+  
+  .odered-sub-body {
+    margin-top: 40px;
+    border-top: 1.5px solid var(--secondary-light-color);
+  }
+  
+  .odered-sub-body p {
+    width: fit-content;
+    margin: auto;
+    position: relative;
+    top: -14px;
+    padding: 0 20px;
+    background-color: var(--bg-color);
+    font-size: 18px;
+  }
+  
+  .odered-main-body {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    height: 820px;
+    overflow-y: scroll;
+  }
+  
+  .time-lists::-webkit-scrollbar,
+  .odered-main-body::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  .time-lists::-webkit-scrollbar-thumb,
+  .odered-main-body::-webkit-scrollbar-thumb {
+    background: var(--secondary-light-color); 
+    border-radius: 10px;
+  }
+  
+  .odered-body-wrapper {
+    background-color: var(--light-color);
+    height: fit-content;
+  }
+  
+  .odered-body-wrapper img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  .odered-body-info {
+    margin: 20px;
+  }
+  
+  .odered-body-info div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .odered-body-info div button {
+    border: 1px solid var(--primary-color);
+    border-radius: 4px;
+    padding: 6px 14px;
+  }

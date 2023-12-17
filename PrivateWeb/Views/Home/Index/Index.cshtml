@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/home/styles/pages/index-body.css">
+}
+<main class="main-index">
+
+    <partial name="_indexVideoPartial.cshtml" />
+    <!-- private-header-video -->
+
+    <partial name="_indexFirstPartial.cshtml" />
+    <!-- first section -->
+
+    <partial name="_indexSecondPartial.cshtml" />    
+    <!-- second section -->
+
+    <partial name="_indexThirdPartial.cshtml" />
+    <!-- third section -->
+
+</main>
+@section Scripts {
+    <script src="~/home/scripts/index-body.js"></script>
+}
+
+
+

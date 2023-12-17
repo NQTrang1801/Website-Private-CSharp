@@ -1,0 +1,41 @@
+@media (max-width: 950px) {
+    .footer-top {
+        display: block;
+    }
+    
+    .footer-top div,
+    .footer-top p {
+        margin-top: 10px;
+    }
+
+    .footer-top p {
+        display: none;
+    }
+
+    .footer-top div {
+        margin: 0px 0px 0px 20px;
+        padding: 20px;
+        cursor: pointer;
+    }
+
+    .footer-top div:nth-child(1):hover p{
+        display: block;
+    }
+
+    .footer-top div:nth-child(2):hover p{
+        display: block;
+    }
+
+    .footer-top div:nth-child(3):hover p{
+        display: block;
+    }
+
+    .footer-top div:nth-child(4):hover p{
+        display: block;
+    }
+
+    .footer-top p {
+        font-size: 10px;
+        margin-left: 20px;
+    }
+}

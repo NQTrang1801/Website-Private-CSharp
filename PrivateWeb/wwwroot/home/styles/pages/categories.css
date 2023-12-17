@@ -1,0 +1,440 @@
+
+.private-header,
+.products-categories,
+.category-view-1,
+.category-view-2 {
+    background-color: var(--light-bg-color) !important;
+    color: var(--primary-color) !important;
+}
+
+.heading .title {
+    font-size: 30px;
+    font-family: 'Cinzel', 'Arial', serif;
+}
+
+.cart-navbar,
+.search-navbar {
+  background-color: var(--secondary-bg-color) !important;
+}
+
+.dot-title
+{
+    font-size: 18px;
+    line-height: 10px;
+    margin-bottom: 4px;
+}
+
+.dot-title a {
+    color: black;
+}
+
+.dot-title a:hover,
+.dotgrid .product-price .before{
+    color: rgb(213, 213, 213);
+}
+
+.wrapper img {
+    width: 100%;
+}
+
+.dotgrid .dot-image
+{
+    position: relative;
+    width: 250px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.dotgrid .dot-image >a,
+.dotgrid .thumbnail.hover,
+.dotgrid .actions, 
+.dotgrid .dot-image .label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    cursor: pointer;
+}
+.dotgrid .thumbnail.hover {
+    opacity: 0;
+    transition: opacity 0.75s ease,
+                transform 1s cubic-bezier(.15, .75, .5,1) 0s;
+    backface-visibility: hidden;
+    transform: translateZ(0);
+}
+.dotgrid .dot-image:hover .thumbnail.hover {
+    opacity: 1;
+    transform: scale3d(1.1,1.1,1.1) translateZ(0);
+}
+
+.dotgrid .actions {
+    z-index: 1;
+    top: auto;
+    bottom: 25px;
+    transform: translate3d(0,100%,0);
+    opacity: 0;
+    transition: all .3s cubic-bezier(0,0,.2,1);
+}
+.dot-image:hover .actions
+{
+    opacity: 1;
+    transform: translateZ(0);
+} 
+
+.dotgrid .actions,
+.dotgrid .dot-image .label {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.dotgrid .actions a,
+.dotgrid .actions div,
+.dotgrid .dot-image .label span {
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: var(--light-bg-color);
+    border-radius: 100%;
+}
+.dotgrid .actions a:hover,
+.dotgrid .actions div:hover
+{
+    background-color: var(--secondary-bg-color);
+    color: var(--primary-color);
+}
+
+.dotgrid .dot-image .label
+{
+    top: 12px;
+    bottom: auto;
+}
+.dotgrid .dot-image .label span{
+    font-size: 12px;
+    background-color: var(--light-bg-color);
+    color: black;
+    border-radius: 50%;
+}
+
+.dotgrid .dot-info
+{
+    text-align: center;
+}
+
+.dotgrid .product-price .before{
+    text-decoration: line-through;
+}
+
+.see-more {
+    width: 100%;
+    text-align: center;
+}
+.see-more button{
+    padding: 8px;
+    border: none;
+    color: var(--primary-color);
+    background-color: var(--light-bg-color);
+    border-radius: 2px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+.see-more button:hover {
+    color: var(--light-bg-color);
+    background-color: var(--primary-color);
+}
+
+.actions a i,
+.actions div i {
+    margin: 0;
+}
+
+/* SLIDER */
+.slider .title {
+    font-size: 80px;
+    color: var(--light-bg-color);
+    
+}
+
+.slider :where(.image, .ob-cover)
+{
+    position: relative;
+}
+
+.slider .ob-cover{
+    height: 500px;
+    z-index: 0;
+}
+.ob-cover img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.slider .title-info
+{
+    color: var(--light-bg-color);
+
+}
+.slider .title-info .wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+}
+.slider .title-info .price-p {
+    position: relative;
+    font-size: 15px;
+    width: 35px;
+    height: 35px;
+    background-color: black;
+    display: flex;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.slider .custom-pagination {
+    position: absolute;
+    right: 30px;
+    top: 50%;
+    bottom: 50%;
+}
+.slider .custom-pagination .swiper-pagination
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.custom-pagination .swiper-pagination-bullet
+{
+    position: relative;
+    width: 24px;
+    height: 24px;
+    opacity: 1;
+    background-color: transparent;
+}
+.custom-pagination .swiper-pagination-bullet::before
+{
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    top:50%;
+    left: 50%;
+    background-color: black;
+    border: 1px solid black;
+    border-radius: 50%;
+    transform: translate(-50%,-50%);
+    transition: width .2s, height .2s , transform .2s;
+}
+.custom-pagination .swiper-pagination-bullet-active::before
+{
+    background-color: transparent;
+    width: 15px;
+    height: 15px;
+}
+.slider .title-info :where(h3,.button)
+{
+    transform: translateY(20px);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform .75s, opacity .75s, visibility .75s;
+}
+.slider .swiper-slide-active .title-info :where(h3,.button)
+{
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+}
+.slider .swiper-slide-active .title-info h3 {
+    transition-delay: .5s;
+}
+.slider .swiper-slide-active .title-info .button {
+    transition-delay: .75s;
+}
+
+.primary-btn{
+    display: flex;
+    border: 1px solid;
+    padding: 10px 20px;
+}
+
+.slider .title-info{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: transparent;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    padding: 10px 0px;
+}
+.slider .button a 
+{
+    border: 1px solid var(--light-bg-color);
+    color: var(--light-bg-color);
+    text-align: center;
+} 
+.slider .button a:hover
+{
+   
+    color: var(--primary-color);
+    background-color: var(--light-bg-color);
+}
+
+/* products-categories */
+main > div .heading{
+    text-align: center;
+    margin-bottom: 60px;
+    padding-top: 60px;
+}
+
+.products-categories .dotgrid .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.products-categories .dotgrid .wrapper > div {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    text-align: center;
+}
+
+:is(.products-categories) .dot-image .thumbnail {
+    position: relative;
+    opacity: unset;
+}
+
+:is(.products-categories) .dot-image .thumbnail img{
+    width: 100%;
+}
+
+.products-categories .dot-title{
+    --fs14:10px;
+    --fw600:400px;
+    padding: 10px 0 ;
+}
+.products-categories .dot-info p {
+    line-height: 1.4;
+}
+
+/* special-prices */
+.special-prices {
+    background-color: var(--light-bg-color);
+}
+
+.special-prices .inner-wrapper{
+    position: relative;
+}
+
+.special-prices .dotgrid .wrapper,
+.category-view-1 .dotgrid .wrapper,
+.category-view-2 .dotgrid .wrapper,
+.formIG .wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    row-gap: 30px;
+    
+}
+
+.special-prices .dotgrid .item,
+.category-view-1  .dotgrid .item,
+.category-view-2  .dotgrid .item,
+.formIG .dotgrid .item {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+}
+
+.special-prices .dot-image img,
+.category-view-1  .dot-image img,
+.category-view-2  .dot-image img {
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+/* category-view-1 */ 
+
+.category-view-1 .wrapper > div:nth-child(9n) {
+    grid-column: span 2;
+    width: 100%;
+}
+.category-view-1 .wrapper > div:nth-child(9n) img{
+    height: 450px;
+    width: 100%;
+}
+
+.category-view-1 .wrapper > div:nth-child(9n) .dot-image {
+    width: 100%;
+}
+
+/* category-view-2 */ 
+
+.category-view-2 .wrapper > div:nth-child(9n+1) {
+    grid-column: span 4;
+    width: 100%;
+}
+.category-view-2 .wrapper > div:nth-child(9n+1) img{
+    height: 450px;
+    width: 100%;
+}
+
+.category-view-2 .wrapper > div:nth-child(9n+1) .dot-image {
+    width: 100%;
+}
+/* BANNER */
+.banner {
+    background-color: var(--light-bg-color);
+}
+.banner .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px;
+}
+.banner .content span{
+    font-size: 15px;
+    text-transform: uppercase;
+
+}
+.banner h3 {
+    font-size: 30px;
+}
+@media (min-width: 760px){
+    .banner{
+        background-size: contain;
+    }
+     
+}
+
+/* FROM INSTAGRAM */
+.ri-instagram-line
+{
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--light-bg-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin: 0 auto;
+    pointer-events: none;
+}
+
+
+
+

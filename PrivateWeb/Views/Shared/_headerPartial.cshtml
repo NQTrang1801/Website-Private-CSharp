@@ -1,0 +1,121 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using PrivateWeb.Areas.Identity.Data
+
+@inject SignInManager<PrivateWebUser> SignInManager
+@inject UserManager<PrivateWebUser> UserManager
+
+<header>
+    <div class="private-header">
+        <div class="private-header-left-section">
+            <div class="header-menu js-menu-btn">
+                <i class="ri-menu-line"></i>
+                <span>Menu</span>
+            </div>
+            <div class="header-search">
+                <i class="ri-search-line"></i>
+                <span>Search</span>
+            </div>
+        </div>
+
+        <div class="private-header-middle-section">
+            <a href="{{url('/')}}"class="title">Private</a>
+        </div>
+
+        <div class="private-header-right-section">
+
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <div class="dropdown">
+                    <a class="btn dropdown-toggle" href="#" role="button" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="ri-user-line icon--small"></i>
+                        <span>Account</span>
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="accountDropdown">
+                        <li><a class="dropdown-item" href="@Url.Page("/Account/Manage/Index")">@UserManager.GetUserName(User)</a></li>
+                        <li>
+                            <form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                                <button id="logout" type="submit" class="dropdown-item">Logout</button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            }
+            else
+            {
+                <div class="nav-item">
+                    <a href="#">
+                        <i class="ri-user-line icon--small"></i>
+                        <span>Account</span>
+                    </a>
+                </div>
+            }
+            <div class="nav-item">
+                <a href="{{url('cart')}}" class="cart-wrapper js-cart-wrapper">
+                    <i class="ri-shopping-bag-line icon--small" data-content="0">
+                        <nav class="cart-navbar js-cart-navbar">
+                            <div class="cart-content js-cart-content">
+                                
+                            </div>
+
+                            <div class="cart-calculate-price">
+                                <div class="cart-price">
+                                    <p>Subtotal:</p>
+                                    <p><span></span> VND</p>
+                                </div>
+                                <div class="cart-checkout">
+                                    CHECKOUT
+                                    (<span></span>)
+                                </div>
+                            </div>
+                        </nav>
+                    </i>
+                    <span>Cart</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search container -->
+    <nav class="search-navbar js-search-navbar">
+        <div class="search-container">
+            <div class="search-input">
+                <input type="text" placeholder="Search" tabindex="-1">
+                <i class="ri-search-line search-icon"></i>
+            </div>
+
+            <div class="search-matched-title">
+                <p>Popular Categories</p>
+            </div>
+
+            <div class="search-matched-categories">
+                
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu container -->
+    <nav class="menu-navbar js-menu-navbar">
+        <div class="nav-close js-nav-close">
+            <i class="ri-close-line"></i>
+            Close
+        </div>
+        <ul class="nav--categories">
+            <a href="@Url.Action("Categories", "Home")">Go to Categories</a>
+        </ul>
+        <ul class="nav--infor">
+            <li>
+                <a href="">About Private</a>
+            </li>
+            <li>
+                <a href="">Services</a>
+            </li>
+            <li>
+                <a href="">Call us</a>
+            </li>
+            <li>
+                <a href="">Find a Store</a>
+            </li>
+        </ul>
+    </nav>
+    <div id="overlay"></div>
+</header>

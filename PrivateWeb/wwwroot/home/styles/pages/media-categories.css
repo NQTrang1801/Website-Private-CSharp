@@ -1,0 +1,31 @@
+@media (max-width: 950px) {
+
+    .products-categories .dotgrid .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .special-prices .dotgrid .wrapper,
+    .category-view-1 .dotgrid .wrapper,
+    .category-view-2 .dotgrid .wrapper,
+    .formIG .wrapper {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        row-gap: 30px;
+
+    }
+
+    .category-view-2 .wrapper > div:nth-child(9n+1) {
+        grid-column: span 2;
+        width: 100%;
+    }
+
+    .dotgrid .dot-image {
+        width: 100%;
+    }
+
+    .dot-title a {
+        line-height: 20px;
+    }
+
+}

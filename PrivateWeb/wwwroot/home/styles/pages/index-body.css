@@ -1,0 +1,342 @@
+/* First introduce */
+.main-index {
+  height: auto;
+  margin-bottom: 100px;
+}
+
+.first-introduce-products {
+  background-image: url(../../pictures/display-products/crinkled-cardboard-texture.jpg);
+  width: 100%;
+  height: auto;
+  margin-top: -5px;
+}
+
+.first-introduce-wrapper {
+  height: auto;
+  margin: 0 70px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.first-introduce-left {
+  width: 75%;
+  margin: auto;
+}
+
+.introduce-left-container {
+  text-align: center;
+  width: 100%;
+  margin-top: 30px;
+}
+
+.introduce-left-container img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.first-introduce-left-info a {
+  text-decoration: underline;
+}
+
+/* Stack image */
+.first-introduce-right {
+  position: relative;
+  width: 70%;
+  margin-left: 60px;
+}
+
+.first-introduce-right-title,
+.first-introduce-left-info p {
+  text-align: center;
+  font-size: 24px;
+  font-family: 'Cinzel', 'Arial', serif;
+  font-weight: 600;
+  margin: 20px 0;
+}
+
+.first-introduce-right-cardstack {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.cardstack {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  left: 0;
+  right: 0;
+}
+
+.cardstack-btn {
+  position: absolute;
+  width: 100%;
+  height: inherit;
+}
+
+.cardstack-btn .btn {
+  position: absolute;
+  background-color: var(--light-bg-color);
+  padding: 8px 10px;
+  border-radius: 24px;
+  display: none;
+  cursor: pointer;
+}
+
+.cardstack:hover .cardstack-btn .btn {
+  display: block;
+}
+
+.cardstack-btn .pause {
+  background-color: transparent;
+  color: var(--light-bg-color);
+  right: 0;
+  margin-top: 10px;
+  margin-right: 10px;
+  border: 2px solid var(--light-bg-color);
+  display: block;
+}
+
+.btn i {
+  margin-right: 0;
+}
+
+.arrow-right {
+  right: 0;
+  top: 35%;
+  margin-right: 10px;
+}
+
+.arrow-left {
+  left: 0;
+  top: 35%;
+  margin-left: 10px;
+}
+
+.cardstack-picture {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.cardstack-picture img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-slide {
+  position: absolute;
+  width: 100%;
+  transition: transform 200ms;
+}
+
+.card-slide-info {
+  position: absolute;
+  bottom: 14px;
+  color: white;
+  width: 100%;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-slide-info span {
+  font-size: 10px;
+}
+
+/* .card-slide:nth-child(4) {
+  transform: translate(0px, 0px);
+}
+
+.card-slide:nth-child(3) {
+  transform: translate(58px, 2px);
+  scale: 0.9;
+}
+
+.card-slide:nth-child(2) {
+  transform: translate(124px, 2px);
+  scale: 0.8;
+} */
+
+/* .card-slide:nth-child(4) .cardstack-timer {
+  display: block;
+} */
+
+.cardstack-timer {
+  width: 100%;
+  height: 1px;
+  background-color: var(--secondary-color);
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  z-index: 2;
+  /* display: none; */
+}
+
+.cardstack-timer-run {
+  width: 40%;
+  height: 1px;
+  background-color: white;
+}
+
+/* Second introduce */
+.second-introduce-title,
+.third-introduce-title {
+  text-align: center;
+  padding: 60px 0 30px 0;
+  line-height: 46px;
+}
+
+.second-introduce-title a {
+  text-decoration: underline;
+}
+
+.second-introduce-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 110px;
+  margin: 0 150px;
+}
+
+.second-introduce-left {
+  width: 100%;
+  height: 555px;
+}
+
+.second-introduce-left img,
+.third-introduce img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.second-introduce-right {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 110px;
+  row-gap: 80px;
+}
+
+.second-introduce-right > div {
+  width: 100%;
+  height: 220px;
+}
+
+.second-introduce-right img,
+.third-introduce-right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.second-introduce-name,
+.third-introduce-name {
+  font-weight: 500;
+}
+
+.second-introduce-price {
+  font-size: 14px;
+}
+
+.second-introduce-price del {
+  color: var(--secondary-light-color);
+}
+
+/* Third introduce */
+.third-introduce-products {
+  margin-top: 100px;
+}
+
+.third-introduce {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  margin: 0 150px;
+  column-gap: 50px;
+  row-gap: 50px;
+}
+
+.third-introduce > div {
+  width: 100%;
+  height: 270px;
+}
+
+@media (max-width: 950px) {
+  .second-introduce-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 30px;
+    width: 100%;
+    margin: auto;
+  }
+
+  .second-introduce-left {
+    min-width: 400px;
+    height: 555px;
+  }
+
+  .second-introduce-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 50px;
+    row-gap: 50px;
+  }
+
+  .third-introduce {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: auto;
+    text-align: center;
+  }
+
+  .introduce-left-container {
+    margin-top: 20px;
+  }
+
+  .first-introduce-right-title,
+  .first-introduce-left-info p {
+    font-size: 20px;
+  }
+
+}
+
+@media (max-width: 770px) {
+  .first-introduce-wrapper {
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .first-introduce-right {
+    height: 45em;
+    margin: auto;
+  }
+
+  .first-introduce-products {
+    padding-bottom: 200px;
+    padding-top: 40px;
+  }
+
+  .first-introduce-right-title,
+  .first-introduce-left-info p {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .first-introduce-products {
+    padding-bottom: 100px;
+  }
+}
+
+@media (max-width: 600px) {
+  .first-introduce-products {
+    padding-bottom: 0px;
+  }
+
+  .first-introduce-wrapper {
+    padding-bottom: 0px;
+  }
+}
