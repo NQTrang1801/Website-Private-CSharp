@@ -1,0 +1,138 @@
+﻿@model PrivateWeb.Models.Promotion
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section Title {
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="bi bi-stickies"></i>
+        </li>
+        <li class="breadcrumb-item breadcrumb-active" aria-current="Promotions"><a asp-action="Index">Promotions</a>/Insert</li>
+    </ol>
+}
+
+@section Contentmain {
+    <div class="row gx-3">
+        <div class="col-xxl-12">
+            <div class="card card-370">
+                <div class="card-body">
+                    <div class="custom-tabs-container">
+                        <ul class="nav nav-tabs" id="formsTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="promotion-tab" data-bs-toggle="tab" href="#promotion" role="tab" aria-controls="promotion" aria-selected="true">promotion</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="formsTabContent">
+
+                            <div class="tab-pane fade show active" id="promotion" role="tabpanel">
+                                <form asp-action="Create" id="promotionForm" name="promotionForm">
+                                    <!-- Row start -->
+                                    <div class="row gx-3">
+                                        <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-8 col-12">
+                                            <div class="mb-3">
+                                                <label class="form-label" asp-for="Name">Enter promotion Name</label>
+                                                <div class="input-group">
+                                                    <input asp-for="Name" type="text" class="form-control" id="promotion-name" name="name" placeholder="Name" autocomplete="off">
+                                                    <p><span asp-validation-for="Name" class="text-danger"></span></p>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-4 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="Slug" class="form-label">Slug</label>
+                                                <div class="input-group">
+                                                    <input readonly asp-for="Slug" type="text" style="background-color: #C0C0C0;" class="form-control" id="promotion-slug" name="slug" placeholder="slug">
+                                                    <p><span asp-validation-for="Slug" class="text-danger"></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-8 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="Code" class="form-label">Code</label>
+                                                <div class="input-group">
+                                                    <input asp-for="Code" type="text" class="form-control" id="promotion-code" name="code" placeholder="Code" autocomplete="off">
+                                                    <p> <span asp-validation-for="Code" class="text-danger"></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-8 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="Value" class="form-label">Value</label>
+                                                <div class="input-group">
+                                                    <input asp-for="Value" type="text" class="form-control" id="promotion-value" name="value" placeholder="Value" autocomplete="off">
+                                                    <p><span asp-validation-for="Value" class="text-danger"></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-8 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="ExpirationDate" class="form-label">Expiration date</label>
+                                                <div class="input-group">
+                                                    <input asp-for="ExpirationDate" class="form-control" />
+                                                    <p><span asp-validation-for="ExpirationDate" class="text-danger"></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-8 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="Status" class="form-label">Status</label>
+                                                <div class="mt-2">
+                                                    <div class="form-check form-check-inline">
+                                                        <input asp-for="Status" class="form-check-input" type="radio" name="Status" id="StatusRadio1" value="1">
+                                                        <label class="form-check-label" for="StatusRadio1">Active</label>
+                                                    </div>
+                                                    <div class="form-check form-check-inline">
+                                                        <input asp-for="Status" class="form-check-input" type="radio" name="Status" id="StatusRadio2" value="0" checked>
+                                                        <label class="form-check-label" for="StatusRadio2">Block</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Row end -->
+                                    <!-- Form actions footer start -->
+                                    <div class="form-actions-footer">
+                                        <button type="reset" class="btn btn-light">Reset</button>
+                                        <input type="submit" value="Create" class="btn btn-success" style="color: black;" />
+                                    </div>
+                                    <!-- Form actions footer end -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}
+
+@section Scripts {
+    <script>
+        $("#promotion-name").change(function () {
+            var element = $(this);
+            $("button[type=submit]").prop('disabled', true);
+
+            $.ajax({
+                url: '/getSlug', // Đường dẫn của route getSlug
+                type: 'GET',
+                data: { title: element.val() }, // Dữ liệu gửi đi (ở đây là giá trị từ phần tử có id là "promotion-name")
+                dataType: 'json',
+                success: function (response) {
+                    $("button[type=submit]").prop('disabled', false);
+                    if (response.status === true) {
+                        $('#promotion-slug').val(response.slug);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error:', error);
+                }
+            });
+        });
+    </script>
+}
+

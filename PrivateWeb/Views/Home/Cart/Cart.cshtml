@@ -1,0 +1,21 @@
+@{
+    ViewData["Title"] = "Cart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/home/styles/pages/cart.css">
+    <link rel="stylesheet" href="~/home/styles/pages/media-cart.css">
+}
+
+<main class="main-cart">
+
+    <partial name="_cartDataPartial.cshtml" />
+ 
+
+</main>
+
+
+@section Scripts {
+    <script type="module" src="~/home/scripts/cart.js"></script>
+}

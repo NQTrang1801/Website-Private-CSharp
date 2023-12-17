@@ -1,0 +1,34 @@
+@{
+    ViewData["Title"] = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Styles {
+    <link rel="stylesheet" href="~/home/styles/pages/product-detail.css">
+}
+
+
+<main class="main-product-detail">
+        <partial name="_productDetailData.cshtml" />
+
+        <partial name="_productDetailExploring.cshtml" />
+
+        <partial name="_productDetailPartner.cshtml" />
+
+
+
+        <div class="button-back">
+            <i class="ri-arrow-left-line"></i>
+            Back
+        </div>
+        <div class="product-detail-container">
+
+        </div>
+ </main>
+
+
+@section Scripts {
+    <script type="module" src="~/home/scripts/index.js"></script>
+    <script type="module" src="~/home/scripts/product-detail.js"></script>
+}

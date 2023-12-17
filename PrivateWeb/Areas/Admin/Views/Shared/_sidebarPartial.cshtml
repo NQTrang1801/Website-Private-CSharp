@@ -1,0 +1,85 @@
+﻿<div class="sidebar-menu">
+    <div class="sidebarMenuScroll">
+        <ul>
+            <li class="sidebar-dropdown">
+                <a href="#">
+                    <i class="bi bi-clipboard"></i>
+                    <span class="menu-text">Order management</span>
+                </a>
+                <div class="sidebar-submenu">
+                    <ul>
+                        <li>
+                            <a href="#">New orders</a>
+                        </li>
+                        <li>
+                            <a href="#">Approved orders</a>
+                        </li>
+                        <li>
+                            <a href="#"> Completed Order</a>
+                        </li>
+                        <li>
+                            <a href="#">Cancelled Order</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="sidebar-dropdown">
+                <a href="#">
+                    <i class="bi bi-stickies"></i>
+                    <span class="menu-text">Report</span>
+                </a>
+                <div class="sidebar-submenu">
+                    <ul>
+                    </ul>
+                </div>
+            </li>
+            <li class="sidebar-dropdown">
+                <a href="#">
+                    <i class="bi bi-handbag"></i>
+                    <span class="menu-text">Product</span>
+                </a>
+                <div class="sidebar-submenu">
+                    <ul>
+                        <li>
+                            <a asp-area="Admin" asp-controller="Categories" asp-action="Index">Categories</a>
+                        </li>
+                        <li>
+                            <a asp-area="Admin" asp-controller="SubCategories" asp-action="Index">Sub Categories</a>
+                        </li>
+                        <li>
+                            <a asp-area="Admin" asp-controller="Products" asp-action="Index">Products</a>
+                        </li>
+                        <li>
+                            <a asp-area="Admin" asp-controller="Variantsses" asp-action="Index">Variantss</a>
+                        </li>
+                        <li>
+                            <a asp-area="Admin" asp-controller="Promotions" asp-action="Index">Promotion</a>
+                        </li>
+                        <li>
+                            <a asp-area="Admin" asp-controller="Sizes" asp-action="Index">Sizes</a>
+                        </li>
+                        <li>
+                            <a asp-area="Admin" asp-controller="Colors" asp-action="Index">Colors</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="sidebar-dropdown">
+                <a href="#">
+                    <i class="bi bi-people"></i>
+                    <span class="menu-text">User</span>
+                </a>
+                <div class="sidebar-submenu">
+                    <ul>
+                        <li>
+                            <a href="{{ route('users.indexStaff') }}">Staff</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('users.indexCustomer') }}">Customers</a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

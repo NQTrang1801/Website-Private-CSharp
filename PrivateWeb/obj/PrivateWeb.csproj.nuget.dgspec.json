@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\NET\\PrivateWeb\\PrivateWeb\\PrivateWeb.csproj": {}
+    "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-2\\PrivateWeb\\PrivateWeb\\PrivateWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\NET\\PrivateWeb\\PrivateWeb\\PrivateWeb.csproj": {
+    "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-2\\PrivateWeb\\PrivateWeb\\PrivateWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\NET\\PrivateWeb\\PrivateWeb\\PrivateWeb.csproj",
+        "projectUniqueName": "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-2\\PrivateWeb\\PrivateWeb\\PrivateWeb.csproj",
         "projectName": "PrivateWeb",
-        "projectPath": "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\NET\\PrivateWeb\\PrivateWeb\\PrivateWeb.csproj",
+        "projectPath": "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-2\\PrivateWeb\\PrivateWeb\\PrivateWeb.csproj",
         "packagesPath": "C:\\Users\\21521\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\NET\\PrivateWeb\\PrivateWeb\\obj\\",
+        "outputPath": "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-2\\PrivateWeb\\PrivateWeb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\21521\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -47,6 +47,14 @@
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
               "version": "[7.0.12, )"
+            },
+            "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
+              "target": "Package",
+              "version": "[7.0.14, )"
+            },
+            "Microsoft.AspNetCore.Razor.Runtime": {
+              "target": "Package",
+              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",

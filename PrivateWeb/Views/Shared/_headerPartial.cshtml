@@ -32,11 +32,14 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="accountDropdown">
                         <li><a class="dropdown-item" href="@Url.Page("/Account/Manage/Index")">@UserManager.GetUserName(User)</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("OrderHistories", "Home")">OrderHistories</a></li>
+                        <li><a class="dropdown-item" href="@Url.Action("Profile", "Home")">Profile</a></li>
                         <li>
                             <form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                                 <button id="logout" type="submit" class="dropdown-item">Logout</button>
                             </form>
                         </li>
+                       
                     </ul>
                 </div>
             }
@@ -50,7 +53,7 @@
                 </div>
             }
             <div class="nav-item">
-                <a href="{{url('cart')}}" class="cart-wrapper js-cart-wrapper">
+                <a href="@Url.Action("Cart", "Home")" class="cart-wrapper js-cart-wrapper">
                     <i class="ri-shopping-bag-line icon--small" data-content="0">
                         <nav class="cart-navbar js-cart-navbar">
                             <div class="cart-content js-cart-content">
@@ -100,7 +103,9 @@
             Close
         </div>
         <ul class="nav--categories">
-            <a href="@Url.Action("Categories", "Home")">Go to Categories</a>
+            <li><a href="@Url.Action("Categories", "Home")">Go to Categories</a></li>
+            <li><a asp-area="Admin" asp-controller="Admin" asp-action="Index">Go to Admin</a></li>
+            <li><a asp-area="Admin" asp-controller="Categories" asp-action="Index">Go to Admin Categories</a></li>
         </ul>
         <ul class="nav--infor">
             <li>

@@ -9,117 +9,305 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = PrivateWeb
 build_property.RootNamespace = PrivateWeb
-build_property.ProjectDir = C:\Users\21521\OneDrive\Tài liệu\DOAN\NET\PrivateWeb\PrivateWeb\
+build_property.ProjectDir = C:\Users\21521\OneDrive\Tài liệu\DOAN\REMOTE-2\PrivateWeb\PrivateWeb\
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
-build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\21521\OneDrive\Tài liệu\DOAN\NET\PrivateWeb\PrivateWeb
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = C:\Users\21521\OneDrive\Tài liệu\DOAN\REMOTE-2\PrivateWeb\PrivateWeb
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Admin/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQWRtaW5cSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Colors/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29sb3JzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Colors/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29sb3JzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Colors/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29sb3JzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Colors/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29sb3JzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Colors/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcQ29sb3JzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Products/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Products/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Products/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Products/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Products/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvZHVjdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Promotions/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvbW90aW9uc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Promotions/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvbW90aW9uc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Promotions/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvbW90aW9uc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Promotions/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvbW90aW9uc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Promotions/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcUHJvbW90aW9uc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Shared/_sidebarPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9zaWRlYmFyUGFydGlhbC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Sizes/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2l6ZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Sizes/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2l6ZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Sizes/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2l6ZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Sizes/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2l6ZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Sizes/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2l6ZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/SubCategories/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU3ViQ2F0ZWdvcmllc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/SubCategories/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU3ViQ2F0ZWdvcmllc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/SubCategories/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU3ViQ2F0ZWdvcmllc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/SubCategories/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU3ViQ2F0ZWdvcmllc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/SubCategories/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU3ViQ2F0ZWdvcmllc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Variantsses/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVmFyaWFudHNzZXNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Variantsses/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVmFyaWFudHNzZXNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Variantsses/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVmFyaWFudHNzZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Variantsses/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVmFyaWFudHNzZXNcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Variantsses/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcVmFyaWFudHNzZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Identity/Pages/Account/ForgotPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxGb3Jnb3RQYXNzd29yZC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Areas/Identity/Pages/Account/Login.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Areas/Identity/Pages/Account/Register.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Identity/Pages/Account/Register.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Areas/Identity/Pages/Account/ResetPassword.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Identity/Pages/Account/ResetPassword.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxSZXNldFBhc3N3b3JkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Areas/Identity/Pages/Account/_ViewImports.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Identity/Pages/Account/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxfVmlld0ltcG9ydHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Identity/Pages/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZhbGlkYXRpb25TY3JpcHRzUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Areas/Identity/Pages/_ViewImports.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Identity/Pages/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Home/Categories/Categories.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Cart/Cart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXJ0XENhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Cart/_cartDataPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXJ0XF9jYXJ0RGF0YVBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Categories/Categories.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXRlZ29yaWVzXENhdGVnb3JpZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Home/Categories/_categoriesInstagramPartial.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Categories/_categoriesInstagramPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXRlZ29yaWVzXF9jYXRlZ29yaWVzSW5zdGFncmFtUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Home/Categories/_categoriesProductsPartial.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Categories/_categoriesProductsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXRlZ29yaWVzXF9jYXRlZ29yaWVzUHJvZHVjdHNQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Home/Categories/_categoriesSliderPartial.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Categories/_categoriesSliderPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXRlZ29yaWVzXF9jYXRlZ29yaWVzU2xpZGVyUGFydGlhbC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Home/Categories/_categoriesTopShowPartial.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Categories/_categoriesTopShowPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXRlZ29yaWVzXF9jYXRlZ29yaWVzVG9wU2hvd1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Home/Categories/_categoriesTypesOfProductPartial.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Categories/_categoriesTypesOfProductPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXRlZ29yaWVzXF9jYXRlZ29yaWVzVHlwZXNPZlByb2R1Y3RQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Home/Index/Index.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Checkout/Checkout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDaGVja291dFxDaGVja291dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Checkout/_checkoutForm.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDaGVja291dFxfY2hlY2tvdXRGb3JtLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Index/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Home/Index/_indexFirstPartial.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Index/_indexFirstPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFxfaW5kZXhGaXJzdFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Home/Index/_indexSecondPartial.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Index/_indexSecondPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFxfaW5kZXhTZWNvbmRQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Home/Index/_indexThirdPartial.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Index/_indexThirdPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFxfaW5kZXhUaGlyZFBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Home/Index/_indexvideoPartial.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Index/_indexvideoPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleFxfaW5kZXh2aWRlb1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Home/Privacy.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/OrderHistories/OrderHistories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxPcmRlckhpc3Rvcmllc1xPcmRlckhpc3Rvcmllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Shared/Error.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/ProductDetails/ProductDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWN0RGV0YWlsc1xQcm9kdWN0RGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/ProductDetails/_productDetailData.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWN0RGV0YWlsc1xfcHJvZHVjdERldGFpbERhdGEuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/ProductDetails/_productDetailExploring.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWN0RGV0YWlsc1xfcHJvZHVjdERldGFpbEV4cGxvcmluZy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/ProductDetails/_productDetailPartner.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9kdWN0RGV0YWlsc1xfcHJvZHVjdERldGFpbFBhcnRuZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Home/Profile/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcm9maWxlXFByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Shared/_footerPartial.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Shared/_footerPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9mb290ZXJQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Shared/_headerPartial.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Shared/_headerPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9oZWFkZXJQYXJ0aWFsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/_ViewImports.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/_ViewStart.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/21521/OneDrive/Tài liệu/DOAN/NET/PrivateWeb/PrivateWeb/Views/Shared/_Layout.cshtml]
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Areas/Admin/Views/Shared/_AdminLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcQWRtaW5cVmlld3NcU2hhcmVkXF9BZG1pbkxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-t0tygsa4ku
+
+[C:/Users/21521/OneDrive/Tài liệu/DOAN/REMOTE-2/PrivateWeb/PrivateWeb/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-3xiiolt0a5
