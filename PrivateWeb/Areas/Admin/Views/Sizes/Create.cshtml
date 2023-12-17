@@ -5,37 +5,70 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 @section Title {
-    <h1>Sizes/Insert</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="bi bi-stickies"></i>
+        </li>
+        <li class="breadcrumb-item breadcrumb-active" aria-current="Categories"><a href="{{route('sizes.index')}}">Sizes</a>/Insert</li>
+    </ol>
 }
-@section Content {
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+@section Contentmain {
+    <!-- Content wrapper start -->
+    <div class="content-wrapper">
+
+        <!-- Row start -->
+        <div class="row gx-3">
+            <div class="col-xxl-12">
+                <div class="card card-370">
+                    <div class="card-body">
+                        <div class="custom-tabs-container">
+                            <ul class="nav nav-tabs" id="formsTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" id="sizes-tab" data-bs-toggle="tab" href="{{route('sizes.index')}}" role="tab" aria-controls="sizes" aria-selected="true">Sizes</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="formsTabContent">
+
+                                <div class="tab-pane fade show active" id="sizes" role="tabpanel">
+                                    <form method="post" id="sizeForm" name="sizeForm" asp-action="Create">
+                                        <!-- Row start -->
+
+
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                        <div class="row gx-3">
+                                            <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-8 col-12">
+                                                <div class="mb-3">
+                                                    <label asp-for="Name" class="control-label">Enter Size Name</label>
+
+                                                    <div class="input-group">
+                                                        <input asp-for="Name" class="form-control" type="text" id="size-name" name="name" placeholder="Name" autocomplete="off" />
+                                                        <p></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- Row end -->
+                                        <!-- Form actions footer start -->
+                                        <div class="form-actions-footer">
+                                            <button type="reset" class="btn btn-light">Reset</button>
+                                            <button type="submit" class="btn btn-success" style="color: black;">Create</button>
+                                        </div>
+                                        <!-- Form actions footer end -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label asp-for="CreatedAt" class="control-label"></label>
-                <input asp-for="CreatedAt" class="form-control" />
-                <span asp-validation-for="CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdatedAt" class="control-label"></label>
-                <input asp-for="UpdatedAt" class="form-control" />
-                <span asp-validation-for="UpdatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+
+        </div>
+        <!-- Row end -->
+
     </div>
-</div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
-
+    <!-- Content wrapper end -->
+}
+@section Scripts {
+    <script>
+    </script>
 }
