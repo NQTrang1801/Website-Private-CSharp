@@ -46,6 +46,7 @@ namespace PrivateWeb.Areas.Admin.Controllers
 
 			var model = await categories
 				.OrderBy(c => c.Id)
+    				.OrderByDescending(c => c.CreatedAt)
 				.Skip((pageNumber - 1) * pageSize)
 				.Take(pageSize)
 				.ToListAsync();
