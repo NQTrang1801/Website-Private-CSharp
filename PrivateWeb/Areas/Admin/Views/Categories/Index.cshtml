@@ -34,10 +34,10 @@
 }
 
 @section Search {
-<form action="" method="get">
+<form asp-action="Index" method="get">
 	<div class="input-group">
-		<input type="text" name="keyword" class="form-control" value="{{Request::get('keyword')}}" placeholder="Search">
-		<button class="btn" type="submit">
+		<input type="text" name="searchString" class="form-control" placeholder="Search">
+			<button class="btn" type="submit">
 			<i class="bi bi-search"></i>
 		</button>
 	</div>
@@ -54,7 +54,7 @@
 				<div class="card">
 					<div class="card-header">
 						<div class="card-title">View
-							<button onclick="window.location.reload()" style="margin-left: 32px; border: 1px solid; padding: 0px 10px; font-size: 16px; border-radius: 12px;">refesh</button>
+							<button onclick="window.location.href='/Admin/Categories'" style="margin-left: 32px; border: 1px solid; padding: 0px 10px; font-size: 16px; border-radius: 12px;">Refresh</button>
 						</div>
 						<div>
 							<a asp-action="Create">
@@ -135,6 +135,19 @@
 										}
 								</tbody>
 							</table>
+							<nav aria-label="Page Navigation" style="margin-top: 40px">
+								<ul class="pagination">
+									@if (ViewData["PageCount"] is int pageCount && ViewData["PageNumber"] is int pageNumber)
+									{
+										for (int i = 1; i <= pageCount; i++)
+										{
+											<li class="page-item @(i == pageNumber ? "active" : "")">
+												<a class="page-link" href="?page=@i">@i</a>
+											</li>
+										}
+									}
+								</ul>
+							</nav>
 						</div>
 
 					</div>
@@ -144,6 +157,7 @@
 		<!-- Row end -->
 
 	</div>
+
 	<!-- Content wrapper end -->
 }
 
