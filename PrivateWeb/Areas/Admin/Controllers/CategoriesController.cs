@@ -21,16 +21,44 @@ namespace PrivateWeb.Areas.Admin.Controllers
             _context = context;
         }
 
-        // GET: Admin/Categories
-        public async Task<IActionResult> Index()
-        {
-            return _context.Categories != null ?
-                        View(await _context.Categories.ToListAsync()) :
-                        Problem("Entity set 'PrivateWebContext.Categories'  is null.");
-        }
+		// GET: Admin/Categories
+		/*        public async Task<IActionResult> Index()
+				{
+					return _context.Categories != null ?
+								View(await _context.Categories.ToListAsync()) :
+								Problem("Entity set 'PrivateWebContext.Categories'  is null.");
+				}*/
 
-        // GET: Admin/Categories/Details/5
-        public async Task<IActionResult> Details(int? id)
+		public async Task<IActionResult> Index(string searchString, int? page)
+		{
+			int pageSize = 6; // Số lượng mục trên mỗi trang
+			int pageNumber = page ?? 1;
+
+			IQueryable<Category> categories = _context.Categories;
+
+			if (!string.IsNullOrEmpty(searchString))
+			{
+				categories = categories.Where(c => c.Name.Contains(searchString));
+			}
+
+			int totalCount = await categories.CountAsync();
+			int pageCount = (int)Math.Ceiling(totalCount / (double)pageSize);
+
+			var model = await categories
+				.OrderBy(c => c.Id)
+				.Skip((pageNumber - 1) * pageSize)
+				.Take(pageSize)
+				.ToListAsync();
+
+			ViewData["PageCount"] = pageCount;
+			ViewData["PageNumber"] = pageNumber;
+
+			return View(model);
+		}
+
+
+		// GET: Admin/Categories/Details/5
+		public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Categories == null)
             {
