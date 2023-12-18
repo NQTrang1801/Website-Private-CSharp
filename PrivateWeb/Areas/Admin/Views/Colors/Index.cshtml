@@ -4,53 +4,123 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-@section Title {
-    <h1>Color</h1>
+
+
+@section Styles{
+	<style>
+		.table th,
+		.table td {
+			padding: 8px;
+			max-width: 200px; 
+		}
+	</style>
 }
-@section Content {
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Code)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UpdatedAt)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Code)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+
+@section Title{
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<i class="bi bi-stickies"></i>
+		</li>
+		<li class="breadcrumb-item breadcrumb-active" aria-current="Colors">Colors</li>
+	</ol>
 }
-    </tbody>
-</table>
+
+@section Search{
+	<form action="" method="get">
+		<div class="input-group">
+			<input type="text" name="keyword" class="form-control" value="{{Request::get('keyword')}}" placeholder="Search">
+			<button class="btn" type="submit">
+				<i class="bi bi-search"></i>
+			</button>
+		</div>
+	</form>
 }
+
+@section Contentmain{
+	<!-- Content wrapper start -->
+	<div class="content-wrapper">
+
+		<!-- Row start -->
+		<div class="row gx-3">
+			<div class="col-sm-12 col-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">View
+							<button onclick="window.location.href='{{ route("colors.index")}}'" style="margin-left: 32px; border: 1px solid; padding: 0px 10px; font-size: 16px; border-radius: 12px;">refesh</button>
+						</div>
+						<div>
+							<a asp-action="Create">
+								<button type="button" class="w-40 btn btn-success btn-rounded" style="color: black;">New color</button>
+							</a>
+						</div>
+
+					</div>
+
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table v-middle m-0">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Name</th>
+                                        <th>Code</th>
+										<th>color</th>
+										<th>Create At</th>
+										<th>Update At</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									
+									@foreach (var item in Model)
+									{
+										<tr>
+											<td>
+												<p>@item.Id</p>
+											</td>
+											<td>
+												<p>@item.Name</p>
+											</td>
+                                            <td>
+												<p>@item.Code</p>
+											</td>
+											<td>
+												<p style="background-color: @item.Code; width: 200px; height: 20px"></p>
+											</td>									
+											<td>@item.CreatedAt</td>
+											<td>@item.UpdatedAt</td>
+											<td>
+												<div class="actions">
+													<div class="icon">
+														<a asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
+
+													</div>
+													<div class="icon">
+														<a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-x-square" style="color: red"></i></a>
+													</div>
+												</div>
+											</td>
+										</tr>
+									}
+
+								</tbody>
+							</table>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Row end -->
+
+	</div>
+	<!-- Content wrapper end -->
+}
+
+@section Scripts{
+<script>
+
+</script>
+
+}
+
