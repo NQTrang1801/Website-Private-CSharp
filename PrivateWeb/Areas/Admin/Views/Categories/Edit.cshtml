@@ -51,11 +51,14 @@
                                                 </div>
                                             </div>
                                             <input hidden asp-for="ShowHome" values= "@Model.ShowHome" class="form-control" />
+                                            <input hidden asp-for="Image" values="@Model.Image" class="form-control" />
+                                            <input hidden asp-for="CreatedAt" values="@Model.CreatedAt" class="form-control" />
+                                            <input hidden asp-for="IsFeatured" values="@Model.IsFeatured" class="form-control" />
                                             <div class="col-md-6">
                                                 <input type="hidden" id="image_id" name="image_id" >
 												<div class="mb-3">
-                                                    <label class="form-label" for="image">Image Dropzone</label>
-                                                    <div id="image" class="dropzone dz-clickable">
+                                                    <label class="form-label" for="image-drop">Image Dropzone</label>
+                                                    <div id="image-drop" class="dropzone dz-clickable">
                                                         <div class="dz-message needsclick">
                                                             <br>Drop files here or click to upload.<br><br>
                                                         </div>
@@ -78,6 +81,7 @@
                                                     </div>
                                                 </div>
                                                 <div>
+                                                    
                                                      <label class="form-label">Image</label>
                                                     <img style="height: 160px; width: 160px; object-fit: cover" src="@Url.Content("~/UploadHome/category/thumb/" + @Model.Image)" alt="">
                                                 </div>
@@ -130,7 +134,7 @@
         Dropzone.autoDiscover = false;
 
             // Khởi tạo Dropzone
-            const myDropzone = new Dropzone("#image", {
+           const myDropzone = new Dropzone("#image-drop", {
                 url: '@Url.Action("UploadFiles", "Categories")',
                 maxFiles: 1,
                 paramName: "filedata",
