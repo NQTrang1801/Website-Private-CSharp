@@ -1,0 +1,160 @@
+﻿@model PrivateWeb.Models.Category
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+@section Title {
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <i class="bi bi-stickies"></i>
+    </li>
+        <li class="breadcrumb-item breadcrumb-active" aria-current="Categories"><a asp-action="Index">Categories</a>/Insert</li>
+</ol>
+}
+@section Content {
+        <!-- Row start -->
+        <div class="row gx-3">
+            <div class="col-xxl-12">
+                <div class="card card-370">
+                    <div class="card-body">
+                        <div class="custom-tabs-container">
+                            <ul class="nav nav-tabs" id="formsTab" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" id="category-tab" data-bs-toggle="tab" href="#category" role="tab" aria-controls="categry" aria-selected="true">ID: @Model.Id</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content" id="formsTabContent">
+
+                                <div class="tab-pane fade show active" id="category" role="tabpanel">
+                                    <form id="updateCategoryForm" name="updateCategoryForm" asp-action="Edit">
+                                        <!-- Row start -->
+                                        <div class="row gx-3">
+                                            <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-8 col-12">
+                                                <div class="mb-3">
+                                                    <label asp-for="Name" class="form-label">Enter Category Name</label>
+                                                    <div class="input-group">
+                                                        <input asp-for="Name" type="text" class="form-control" id="category-name" name="name" placeholder="Name" value="@Model.Name" autocomplete="off">
+                                                        <p> <span asp-validation-for="Name" class="text-danger"></span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-3 col-sm-4 col-12">
+                                                <div class="mb-3">
+                                                    <label asp-for="Slug" class="form-label">Slug</label>
+                                                    <div class="input-group">
+                                                        <input asp-for="Slug" type="text" readonly style="background-color: #C0C0C0;" class="form-control" id="category-slug" name="slug" value="@Model.Slug" placeholder="slug">
+                                                        <p><span asp-validation-for="Slug" class="text-danger"></span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <input hidden asp-for="ShowHome" values= "@Model.ShowHome" class="form-control" />
+                                            <div class="col-md-6">
+                                                <input type="hidden" id="image_id" name="image_id" >
+												<div class="mb-3">
+                                                    <label class="form-label" for="image">Image Dropzone</label>
+                                                    <div id="image" class="dropzone dz-clickable">
+                                                        <div class="dz-message needsclick">
+                                                            <br>Drop files here or click to upload.<br><br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+											</div>
+                                            <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-8 col-12">
+                                                <div class="mb-3">
+                                                    <label asp-for="Status" class="form-label">Status</label>
+                                                    <div class="mt-2">
+                                                        <div class="form-check form-check-inline">
+                                                            <input asp-for="Status" class="form-check-input" type="radio" name="status" id="StatusRadio1" value="1" checked="@(Model.Status == 1 ? "checked" : null)" >
+
+                                                            <label class="form-check-label" for="StatusRadio1">Active</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                        <input asp-for="Status" class="form-check-input" type="radio" name="status" id="StatusRadio2" value="0" checked="@(Model.Status == 0 ? "checked" : null)" >
+                                                            <label class="form-check-label" for="StatusRadio2">Block</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                     <label class="form-label">Image</label>
+                                                    <img style="height: 160px; width: 160px; object-fit: cover" src="@Url.Content("~/UploadHome/category/thumb/" + @Model.Image)" alt="">
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <!-- Row end -->
+
+                                        <!-- Form actions footer start -->
+                                        <div class="form-actions-footer">
+                                            <button type="reset" class="btn btn-light">Reset</button>
+                                            <button type="submit" class="btn btn-success" style="color: black;">Update</button>
+                                        </div>
+                                        <!-- Form actions footer end -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Row end -->
+}
+
+@section Scripts {
+<script>
+
+   
+
+    $("#category-name").change(function() {
+        element = $(this);
+        $("button[type=submit]").prop('disabled', true);
+        $.ajax({
+                url: '/getSlug',
+                type: 'GET',
+                data: {title: element.val()},
+                dataType: 'json',
+                success: function(response) {
+                    $("button[type=submit]").prop('disabled', false);
+                    if (response["status"] == true)
+                    {
+                        $('#category-slug').val(response["slug"]);
+                    }
+                    
+                }
+            });
+    });
+        Dropzone.autoDiscover = false;
+
+            // Khởi tạo Dropzone
+            const myDropzone = new Dropzone("#image", {
+                url: '@Url.Action("UploadFiles", "Categories")',
+                maxFiles: 1,
+                paramName: "filedata",
+                addRemoveLinks: true,
+                acceptedFiles: "image/jpeg, image/png, image/gif",
+                init: function () {
+                    this.on('addedfile', function (file) {
+                        if (this.files.length > 1) {
+                            this.removeFile(this.files[0]);
+                        }
+                    });
+
+                    this.on("success", function (file, response) {
+                        $("#image_id").val(response.image_id);
+                        console.log(response);
+                    });
+
+                    this.on("sending", function (file, xhr, formData) {
+                        console.log("Sending file...");
+                    });
+                },
+                error: function (file, errorMessage) {
+                    console.log(errorMessage);
+                }
+            });
+</script>
+}
