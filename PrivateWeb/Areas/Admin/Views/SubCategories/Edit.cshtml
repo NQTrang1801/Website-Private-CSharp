@@ -6,67 +6,208 @@
 }
 
 @section Title {
-    <h1>Sub Categories/Edit</h1>
+    <ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <i class="bi bi-stickies"></i>
+    </li>
+    <li class="breadcrumb-item breadcrumb-active" aria-current="SubCategories"><a asp-action="Index">Sub Categories</a>/Update</li>
+    </ol>
 }
-@section Content {
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Slug" class="control-label"></label>
-                <input asp-for="Slug" class="form-control" />
-                <span asp-validation-for="Slug" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                <input asp-for="Status" class="form-control" />
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Image" class="control-label"></label>
-                <input asp-for="Image" class="form-control" />
-                <span asp-validation-for="Image" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <input asp-for="CategoryId" class="form-control" />
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedAt" class="control-label"></label>
-                <input asp-for="CreatedAt" class="form-control" />
-                <span asp-validation-for="CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdatedAt" class="control-label"></label>
-                <input asp-for="UpdatedAt" class="form-control" />
-                <span asp-validation-for="UpdatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IsFeatured" class="control-label"></label>
-                <input asp-for="IsFeatured" class="form-control" />
-                <span asp-validation-for="IsFeatured" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ShowHome" class="control-label"></label>
-                <input asp-for="ShowHome" class="form-control" />
-                <span asp-validation-for="ShowHome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+
+
+@section Contentmain {
+        <!-- Row start -->
+        <div class="row gx-3">
+            <div class="col-xxl-12">
+                <div class="card card-370">
+                    <div class="card-body">
+                        <div class="custom-tabs-container">
+                            <ul class="nav nav-tabs" id="formsTab" role="tablist">
+                               
+                                <li class="nav-item" role="presentation">
+                                    <a class="nav-link active" id="subCategory-tab" data-bs-toggle="tab" href="#sub-category" role="tab" aria-controls="sub-category" aria-selected="false">ID: @Model.Id</a>
+                                </li>
+                                
+                            </ul>
+                            <div class="tab-content" id="formsTabContent">
+
+                                <div class="tab-pane fade show active" id="sub-category" role="tabpanel">
+                                    <form asp-action="Edit" id="updateSubCategoryForm" name="updateSubCategoryForm">
+               
+                                        <!-- Row start -->
+                                        <div class="row gx-3">
+                                            <div class="col-md-12">
+                                                <div class="mb-3">
+                                                    <label class="form-label">Category</label>
+                                                    <div class="option-group">
+                                                    <select asp-for="CategoryId" id="categorySelect" name="CategoryId" id="category" class="form-control">
+                                                            <option value="">Select a Category</option>
+                                                            @if (ViewData["ModelCategories"] is IQueryable<Category> categories && categories.Any())
+                                                            {
+                                                                foreach (var category in categories)
+                                                                {
+                                                                <option value="@category.Id" selected="@(Model.CategoryId == category.Id ? "selected" : null)">@category.Name</option>
+                                                                }
+                                                            }
+                                                        </select>
+
+                                                       <p></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-8 col-12">
+                                                <div class="mb-3">
+                                                    <label asp-for="Name" class="form-label">Enter Sub Category Name</label>
+                                                    <div class="input-group">
+                                                        <input asp-for="Name" type="text" class="form-control" id="sub-category-name" name="name" placeholder="Name" autocomplete="off" value="@Model.Name">
+                                                        <p><span asp-validation-for="Name" class="text-danger"></span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-3 col-sm-4 col-12">
+                                                <div class="mb-3">
+                                                    <label asp-for="Slug" class="form-label">Slug</label>
+                                                    <div class="input-group">
+                                                        <input asp-for="Slug" type="text" readonly style="background-color: #C0C0C0;" class="form-control" id="sub-category-slug" name="slug" placeholder="slug" value="@Model.Slug">
+                                                        <p><span asp-validation-for="Slug" class="text-danger"></span> </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <input hidden asp-for="ShowHome" values="@Model.ShowHome" class="form-control" />
+                                        <input hidden asp-for="Image" values="@Model.Image" class="form-control" />
+                                        <input hidden asp-for="CreatedAt" values="@Model.CreatedAt" class="form-control" />
+                                        <input hidden asp-for="IsFeatured" values="@Model.IsFeatured" class="form-control" />
+                                            <div class="col-md-6">
+                                                <input type="hidden" id="image_id" name="image_id" >
+												<div class="mb-3">
+                                                <label class="form-label" for="image-drop">Image</label>
+                                                <div id="image-drop" class="dropzone dz-clickable">
+                                                        <div class="dz-message needsclick">
+                                                            <br>Drop files here or click to upload.<br><br>
+                                                        </div>
+                                                    </div>
+                                                </div>
+											</div>
+                                            <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-8 col-12">
+                                                <div class="mb-3">
+                                                    <label asp-for="Status" class="form-label">Status</label>
+                                                    <div class="mt-2">
+                                                        <div class="form-check form-check-inline">
+                                                            <input asp-for="Status" class="form-check-input" type="radio" name="status" id="StatusRadio1" value="1" checked="@(Model.Status == 1 ? "checked" : null)">
+                                                            <label class="form-check-label" for="StatusRadio1">Active</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input asp-for="Status" class="form-check-input" type="radio" name="status" id="StatusRadio2" value="0" checked="@(Model.IsFeatured == 0 ? "checked" : null)">
+                                                            <label class="form-check-label" for="StatusRadio2">Block</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <label class="form-label">Image</label>
+                                                <img style="height: 160px; width: 160px; object-fit: cover" src="@Url.Content("~/UploadHome/sub category/thumb/" + @Model.Image)" alt="">
+                                                </div>
+                                            </div>
+                                            
+
+                                        </div>
+                                        <!-- Row end -->
+
+                                        <!-- Form actions footer start -->
+                                        <div class="form-actions-footer">
+                                            <button type="reset" class="btn btn-light">Reset</button>
+                                            <button type="submit" class="btn btn-success" style="color: black;">Update</button>
+                                        </div>
+                                        <!-- Form actions footer end -->
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- Row end -->
+  }
+@section Scripts {
+
+<script>
+    let selectedCategoryId = $(this).find('option:selected').val();
+    $('#categorySelect').change(function() {
+        let selectedOption = $(this).find('option:selected');
+        selectedCategoryId = selectedOption.val();
+        element = $("#sub-category-name");
+        $("button[type=submit]").prop('disabled', true);
+        $.ajax({
+            url: '/getSlug',
+            type: 'GET',
+            data: {title: element.val()},
+            dataType: 'json',
+            success: function(response) {
+                $("button[type=submit]").prop('disabled', false);
+                if (response["status"] == true) { 
+                    if (selectedCategoryId) {
+                        var subCategorySlug = response["slug"] + '--' + selectedCategoryId;
+                        $('#sub-category-slug').val(subCategorySlug);
+                    } else {
+                        $('#sub-category-slug').val(response["slug"]);
+                    }
+                }
+            }
+        });
+    });
+
+    $("#sub-category-name").change(function() {
+        element = $(this);
+        $("button[type=submit]").prop('disabled', true);
+        $.ajax({
+            url: '/getSlug',
+            type: 'GET',
+            data: {title: element.val()},
+            dataType: 'json',
+            success: function(response) {
+                $("button[type=submit]").prop('disabled', false);
+                if (response["status"] == true) { 
+                    if (selectedCategoryId) {
+                        var subCategorySlug = response["slug"] + '--' + selectedCategoryId;
+                        $('#sub-category-slug').val(subCategorySlug);
+                    } else {
+                        $('#sub-category-slug').val(response["slug"]);
+                    }
+                }
+            }
+        });
+    });
+
+        Dropzone.autoDiscover = false;
+
+                // Khởi tạo Dropzone
+               const myDropzone = new Dropzone("#image-drop", {
+                    url: '@Url.Action("UploadFiles", "SubCategories")',
+                    maxFiles: 1,
+                    paramName: "filedata",
+                    addRemoveLinks: true,
+                    acceptedFiles: "image/jpeg, image/png, image/gif",
+                    init: function () {
+                        this.on('addedfile', function (file) {
+                            if (this.files.length > 1) {
+                                this.removeFile(this.files[0]);
+                            }
+                        });
+
+                        this.on("success", function (file, response) {
+                            $("#image_id").val(response.image_id);
+                            console.log(response);
+                        });
+
+                        this.on("sending", function (file, xhr, formData) {
+                            console.log("Sending file...");
+                        });
+                    },
+                    error: function (file, errorMessage) {
+                        console.log(errorMessage);
+                    }
+                });
+</script>
 }

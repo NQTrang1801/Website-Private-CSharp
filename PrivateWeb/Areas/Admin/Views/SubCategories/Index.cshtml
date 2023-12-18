@@ -5,83 +5,225 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
+@section Styles {
+<style>
+    .table th,
+    .table td {
+        padding: 8px;
+        max-width: 200px; 
+    }
+</style>
+}
+
+
 @section Title {
-    <h1>Sub Categories</h1>
+<ol class="breadcrumb">
+	<li class="breadcrumb-item">
+		<i class="bi bi-stickies"></i>
+	</li>
+	<li class="breadcrumb-item breadcrumb-active" aria-current="Sub-Categories">Sub Categories</li>
+</ol>
 }
-@section Content {
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Slug)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoryId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UpdatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsFeatured)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShowHome)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Slug)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoryId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsFeatured)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShowHome)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+
+@section Search {
+	<form asp-action="Index" method="get">
+		<div class="input-group">
+			<input type="text" name="searchString" class="form-control" placeholder="Search">
+			<button class="btn" type="submit">
+				<i class="bi bi-search"></i>
+			</button>
+		</div>
+	</form>
 }
-    </tbody>
-</table>
+
+@section Contentmain {
+		<!-- Row start -->
+		<div class="row gx-3">
+			<div class="col-sm-12 col-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">View
+							<button onclick="window.location.href='/Admin/SubCategories'" style="margin-left: 32px; border: 1px solid; padding: 0px 10px; font-size: 16px; border-radius: 12px;">refesh</button>
+						</div>
+						<div>
+							<a asp-action="Create">
+								<button type="button" class="w-40 btn btn-success btn-rounded" style="color: black;">New Sub Category</button>
+							</a>
+						</div>
+
+					</div>
+
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table v-middle m-0">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Sub Categories Name</th>
+										<th>Slug</th>
+										<th>Image</th>
+										<th>Category</th>
+										<th>Create At</th>
+										<th>Update At</th>
+										<th>Status</th>
+										<th>showHome</th>
+										<th>isFeatured</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+										@foreach (var item in Model) {
+										<tr>
+											<td>
+										<p>@item.Id</p>
+											</td>
+											<td>
+										<p>@item.Name</p>
+											</td>
+											<td>
+										<p>@item.Slug</p>
+											</td>
+											<td>
+												<img src="@Url.Content("~/UploadHome/sub category/thumb/" + @item.Image)" class="flag-img-lg" alt="" />
+											</td>
+											<td>@item.CategoryId</td>
+											<td>@item.CreatedAt</td>
+											<td>@item.UpdatedAt</td>
+											<td id="sub-status-id-@item.Id">
+												@if(item.Status == 1)
+												{
+													<span class="badge shade-green min-70">Active</span>
+												}else
+												{
+													<span class="badge shade-red min-70">block</span>
+												}
+											</td>
+											<td>
+												<div class="actions">
+													<div class="form-check form-switch">
+													<input id="sub-showHome-id-@item.Id" class="form-check-input show-home-checkbox" type="checkbox" role="switch" data-subcategory-id="@item.Id" checked="@(item.ShowHome == "Yes" ? "checked" :null )" >
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class="actions">
+													<div class="form-check form-switch">
+													<input id="featured-id-@item.Id" class="form-check-input featured-checkbox" type="checkbox" role="switch" data-subcategory-id="@item.Id" checked="@(item.IsFeatured == 1 ? "checked" :null )">
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class="actions">
+													<div class="icon">
+													<a asp-action="Edit" asp-route-id="@item.Id" ><i class="bi bi-pencil-square"></i></a>
+													</div>
+													<div class="icon">
+													<a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-x-square" style="color: red"></i></a>
+													</div>
+												</div>
+											</td>
+										</tr>
+										}
+									
+								</tbody>
+							</table>
+						<nav aria-label="Page Navigation" style="margin-top: 40px">
+							<ul class="pagination">
+								@if (ViewData["PageCount"] is int pageCount && ViewData["PageNumber"] is int pageNumber)
+								{
+									for (int i = 1; i <= pageCount; i++)
+									{
+										<li class="page-item @(i == pageNumber ? "active" : "")">
+											<a class="page-link" href="?page=@i">@i</a>
+										</li>
+									}
+								}
+							</ul>
+						</nav>
+							
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Row end -->
+
+
+}
+
+@section Scripts {
+<script>
+	document.querySelectorAll('.show-home-checkbox')
+		.forEach(function(checkbox) {
+    		checkbox.addEventListener('change', function() {
+				var subcategoryId = this.dataset.subcategoryId;
+				var value = this.checked ? 'Yes' : 'No';
+					handleToggleShowHome(subcategoryId, value);
+			});
+		});
+		function handleToggleShowHome(id, value) {
+				var status = $('#sub-status-id-' + id).text().trim();
+				if (status === 'Active') {
+					$.ajax({
+						type: 'POST',
+						url: '@Url.Action("UpdateShowHome", "SubCategories", new { area = "Admin" })',
+						data: {
+							id: id,
+							showOnHome: value
+						},
+						success: function (response) {
+								console.log('ShowHome updated successfully');
+						},
+						error: function (xhr, status, error) {
+								console.error('Error updating ShowHome:', error);
+						}
+					});
+				} else {
+						alert('You can only change showHome when status is Active.');
+						$('#sub-showHome-id-' + id).prop('checked', false);
+				}
+			}
+
+	document.querySelectorAll('.featured-checkbox')
+		.forEach(function(checkbox) {
+    		checkbox.addEventListener('change', function() {
+				var subcategoryId = this.dataset.subcategoryId;
+				var value = this.checked ? 1 : 0;
+    			handleToggleFeatured(subcategoryId, value);
+			});
+		});
+
+		function handleToggleFeatured(id, value) {
+			var status = $('#sub-status-id-' + id).text().trim();
+			if (status === 'Active') {
+				$.ajax({
+					url: '@Url.Action("UpdateIsFeatured", "SubCategories", new { area = "Admin" })',
+					type: 'POST',
+					data: {
+						id: id,
+						isFeatured: value
+					},
+					success: function(response) {
+						if (response.status == true) {
+							console.log('is_featured updated successfully');
+						} else {
+							console.log('Failed to update is_featured');
+						}
+					},
+					error: function(xhr, status, error) {
+						console.error('Error updating is_featured :', error);
+					}
+				});
+			}
+			else
+			{
+				alert('You can only change is_featured when status is Active.');
+				$('#featured-id-' + id).prop('checked', false);
+			}
+
+		}
+
+</script>
+
 }
