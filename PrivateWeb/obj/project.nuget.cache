@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "UrmNPhXtMC+L7Rt2eysZ9DDATobK7mtuepdQntV5ynId/Q3UeflDaQF8I4C6R/8lwB8hsd5Gnif6NQ3xs9xzRA==",
+  "dgSpecHash": "UgGohttmz5rcwHMvJ9Pb9zgJ50v6C/a8bnbHzp17uW/fo2pZ+jrM5ybeVzMZwSrJo6lqNHpLsRj+qrpF3TVRfQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-2\\PrivateWeb\\PrivateWeb\\PrivateWeb.csproj",
+  "projectFilePath": "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-3\\ASP\\PrivateASPMVC\\PrivateWeb\\PrivateWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\21521\\.nuget\\packages\\azure.core\\1.25.0\\azure.core.1.25.0.nupkg.sha512",
     "C:\\Users\\21521\\.nuget\\packages\\azure.identity\\1.7.0\\azure.identity.1.7.0.nupkg.sha512",

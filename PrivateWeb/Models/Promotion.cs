@@ -24,4 +24,5 @@ public partial class Promotion
     public DateTime? UpdatedAt { get; set; }
 
     public virtual ICollection<Variantss> Variantsses { get; set; } = new List<Variantss>();
+    public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }

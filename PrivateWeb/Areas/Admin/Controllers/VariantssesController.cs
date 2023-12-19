@@ -63,19 +63,43 @@ namespace PrivateWeb.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Title,Slug,ProductId,SizeId,ColorId,PromotionId,Image,Quantity,Price,Status,CreatedAt,UpdatedAt")] Variantss variantss)
+        public async Task<IActionResult> Create([Bind("Id,Title,Slug,ProductId,SizeId,ColorId,PromotionId,Image,Quantity,Price,Status,CreatedAt,UpdatedAt")] Variantss variantss, string imageId)
         {
-            if (ModelState.IsValid)
+            variantss.Image = "null.png";
+            variantss.CreatedAt = DateTime.Now;
+            variantss.UpdatedAt = DateTime.Now;
+           
+            _context.Add(variantss);
+            await _context.SaveChangesAsync();
+            if (!string.IsNullOrEmpty(imageId) && !imageId.Equals("0"))
             {
-                _context.Add(variantss);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                var tempImage = await _context.TempImages.FindAsync(int.Parse(imageId));
+                if (tempImage != null)
+                {
+                    var extArray = tempImage.Name.Split('.');
+                    var ext = extArray[extArray.Length - 1]; // Lấy phần mở rộng của tệp tin
+
+                    var newImageName = $"{variantss.Id}.{ext}";
+                    var uploadedDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadedFiles");
+                    var variantDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadHome", "product", "variantss");
+                    var thumbDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadHome", "product", "variantss", "thumb");
+                    var sourceFilePath = Path.Combine(uploadedDirectory, tempImage.Name);
+                    var destinationVariantFilePath = Path.Combine(variantDirectory, newImageName);
+                    var destinationThumbFilePath = Path.Combine(thumbDirectory, newImageName);
+                    if (System.IO.File.Exists(sourceFilePath))
+                    {
+                        System.IO.File.Copy(sourceFilePath, destinationVariantFilePath, true);
+                        System.IO.File.Copy(sourceFilePath, destinationThumbFilePath, true);
+                        variantss.Image = newImageName;
+                        _context.Update(variantss);
+                        await _context.SaveChangesAsync();
+                        System.IO.File.Delete(sourceFilePath);
+                    }
+                }
             }
-            ViewData["ColorId"] = new SelectList(_context.Colors, "Id", "Id", variantss.ColorId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", variantss.ProductId);
-            ViewData["PromotionId"] = new SelectList(_context.Promotions, "Id", "Id", variantss.PromotionId);
-            ViewData["SizeId"] = new SelectList(_context.Sizes, "Id", "Id", variantss.SizeId);
-            return View(variantss);
+            int productId = variantss.ProductId;
+            // Chuyển hướng đến action Edit của ProductsController với Id của sản phẩm
+            return RedirectToAction("Edit", "Products", new { id = productId });
         }
 
         // GET: Admin/Variantsses/Edit/5
@@ -103,19 +127,59 @@ namespace PrivateWeb.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Slug,ProductId,SizeId,ColorId,PromotionId,Image,Quantity,Price,Status,CreatedAt,UpdatedAt")] Variantss variantss)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,Slug,ProductId,SizeId,ColorId,PromotionId,Image,Quantity,Price,Status,CreatedAt,UpdatedAt")] Variantss variantss, string imageId)
         {
-            if (id != variantss.Id)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
+                int productId = variantss.ProductId;
+                if (id != variantss.Id)
+                {
+                    return NotFound();
+                }
                 try
                 {
-                    _context.Update(variantss);
-                    await _context.SaveChangesAsync();
+
+                var oldImage = variantss.Image;
+                variantss.UpdatedAt = DateTime.Now;
+                _context.Update(variantss);
+                await _context.SaveChangesAsync();
+                if (!string.IsNullOrEmpty(imageId) && !imageId.Equals("0"))
+                {
+                    var tempImage = await _context.TempImages.FindAsync(int.Parse(imageId));
+                    if (tempImage != null)
+                    {
+                        var extArray = tempImage.Name.Split('.');
+                        var ext = extArray[extArray.Length - 1];
+
+                        var newImageName = $"{variantss.Id}-{tempImage.Id}{DateTime.Now.Ticks}.{ext}";
+                        var uploadedDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadedFiles");
+                        var variantDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadHome", "product", "variantss");
+                        var thumbDirectory = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "UploadHome", "product", "variantss", "thumb");
+                        var sourceFilePath = Path.Combine(uploadedDirectory, tempImage.Name);
+                        var destinationFilePath = Path.Combine(variantDirectory, newImageName);
+                        var destinationThumbFilePath = Path.Combine(thumbDirectory, newImageName);
+
+                        if (System.IO.File.Exists(sourceFilePath))
+                        {
+                            System.IO.File.Copy(sourceFilePath, destinationFilePath, true);
+                            System.IO.File.Copy(sourceFilePath, destinationThumbFilePath, true);
+                            variantss.Image = newImageName;
+                            _context.Update(variantss);
+                            await _context.SaveChangesAsync();
+                            System.IO.File.Delete(sourceFilePath);
+                        }
+
+                        if (!string.IsNullOrEmpty(oldImage))
+                        {
+                            var destinationOldFilePath = Path.Combine(variantDirectory, oldImage);
+                            var destinationThumbOldFilePath = Path.Combine(thumbDirectory, oldImage);
+                            if (System.IO.File.Exists(destinationOldFilePath))
+                            {
+                                System.IO.File.Delete(destinationOldFilePath);
+                                System.IO.File.Delete(destinationThumbOldFilePath);
+                            }
+                        }
+                    }
+                }
+                return RedirectToAction("Edit", "Products", new { id = productId });
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -129,12 +193,6 @@ namespace PrivateWeb.Areas.Admin.Controllers
                     }
                 }
                 return RedirectToAction(nameof(Index));
-            }
-            ViewData["ColorId"] = new SelectList(_context.Colors, "Id", "Id", variantss.ColorId);
-            ViewData["ProductId"] = new SelectList(_context.Products, "Id", "Id", variantss.ProductId);
-            ViewData["PromotionId"] = new SelectList(_context.Promotions, "Id", "Id", variantss.PromotionId);
-            ViewData["SizeId"] = new SelectList(_context.Sizes, "Id", "Id", variantss.SizeId);
-            return View(variantss);
         }
 
         // GET: Admin/Variantsses/Delete/5

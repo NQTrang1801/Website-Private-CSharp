@@ -4,131 +4,314 @@
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
+@section Styles {
+<style>
+    .table th,
+    .table td {
+        padding: 8px;
+        max-width: 200px;
+    }
+	.product-images {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr 1fr;
+		column-gap: 8px;
+		margin-bottom: 20px;
+		margin-left: 80px;
+	}
+
+	.product-images img {
+		object-fit: contain;
+		width: 150px;
+		height: auto;
+	}
+	.product-images > div {
+		display: flex;
+		flex-direction:column;
+	}
+
+
+	.page-number {
+		position: fixed;
+		bottom: 8px;
+		right: 20px;
+	}
+
+		html, body {
+			height: 100%;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+		}
+
+</style>
+}
+
 @section Title {
-    <h1>Products</h1>
+	<ol class="breadcrumb">
+		<li class="breadcrumb-item">
+			<i class="bi bi-stickies"></i>
+		</li>
+		<li class="breadcrumb-item breadcrumb-active" aria-current="Products">Products</li>
+	</ol>
 }
+@section Search {
+	<form asp-action="Index" method="get">
+		<div class="input-group">
+			<input type="text" name="searchString" class="form-control" placeholder="Search">
+			<button class="btn" type="submit">
+				<i class="bi bi-search"></i>
+			</button>
+		</div>
+	</form>
+}
+
 @section Contentmain {
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Slug)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Keywords)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Detail)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Care)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Amount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CategoryId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.SubCategoryId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PromotionId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImagesId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ShowHome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IsFeatured)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UpdatedAt)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Slug)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Keywords)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Detail)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Care)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Amount)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CategoryId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.SubCategoryId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PromotionId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImagesId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ShowHome)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IsFeatured)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+	<div class="content-wrapper">
+		<!-- Row start -->
+		<div class="row gx-3">
+			<div class="col-sm-12 col-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">View
+						<button onclick="window.location.href='/Admin/Products'" style="margin-left: 32px; border: 1px solid; padding: 0px 10px; font-size: 16px; border-radius: 12px;">refesh</button>
+						</div>
+						<div>
+							<a asp-action="Create">
+								<button type="button" class="w-40 btn btn-success btn-rounded" style="color: black;">New product</button>
+							</a>
+						</div>
+
+					</div>
+
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table v-middle m-0">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>Title</th>
+										<th>Category</th>
+										<th>Sub Category</th>
+                                        <th>Price</th>
+										<th>Promo</th>
+                                        <th>Amount</th>
+										<th>Update At</th>
+										<th>Status</th>
+										<th>ShowHome</th>
+										<th>isFeatured</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+
+										@foreach (var item in Model) {
+										<tr>
+											<td>
+												<p>@item.Id</p>
+											</td>
+											<td>
+												<p>@item.Title</p>
+											</td>
+											<td>
+												<p>
+												@(item.Category != null ? item.Category.Name : "")
+												</p>
+											</td>
+                                            <td>
+												<p>
+												@(item.SubCategory != null ? item.SubCategory.Name : "")
+												</p>
+											</td>
+                                            <td>
+                                                <p>@item.Price</p>
+                                            </td>
+											<td>
+												<p>@(item.Promotion != null ? item.Promotion.Value : "")</p>
+                                            </td>
+											<td>
+                                                <p>@item.Amount</p>
+                                            </td>
+											<td>@item.UpdatedAt</td>
+											<td id="status-id-@item.Id">
+											@if (item.Status == 1)
+											{
+												<span class="badge shade-green min-70">Active</span>
+											} else{
+												<span class="badge shade-red min-70">block</span>
+											}
+											</td>
+											<td>
+												<div class="actions">
+													<div class="form-check form-switch">
+														<input id="showHome-id-@item.Id" class="form-check-input show-home-checkbox" type="checkbox" role="switch" data-product-id="@item.Id" checked="@(item.ShowHome == "Yes" ? "checked" :null)">
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class="actions">
+													<div class="form-check form-switch">
+														<input id="featured-id-@item.Id" class="form-check-input featured-checkbox" type="checkbox" role="switch" data-product-id="@item.Id" checked="@(item.IsFeatured == 1 ? "checked" :null)">
+													</div>
+												</div>
+											</td>
+											<td>
+												<div class="actions">
+                                                    <a href="#" class="btn-detail" id="btn-detail-@item.Id">
+                                                        <i class="bi bi-list text-green"></i>
+                                                    </a>
+													<div class="icon">
+														<a asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square"></i></a>
+													</div>
+													<div class="icon">
+													<a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-x-square" style="color: red"></i></a>
+													</div>
+												</div>
+											</td>
+										</tr>
+										<tr>
+											<td colspan="12">
+												<div class="product-detail" style="display: none" id="pro-@item.Id">
+														<div><strong>Slug: </strong><span>@item.Slug</span></div>
+														<div><strong>Description: </strong><pre>@item.Description</pre></div>
+														<div><strong>Detail: </strong><span>@item.Detail</span></div>
+														<div><strong>Care: </strong><span>@item.Care</span></div>
+														<div><strong>Create date: </strong><span>@item.CreatedAt</span></div>
+														<div class="drop-detail" style="">
+															<div>
+																<strong>Images: </strong>
+																<div class="product-images">
+																
+																	<div>
+																		<label for="">image 1</label>
+																		<img src="@Url.Content("~/UploadHome/product/products/thumb/" + @item.Images.Image1)" alt="">
+																	</div>
+																	<div>
+																		<label for="">image 2</label>
+																		<img src="@Url.Content("~/UploadHome/product/products/thumb/" + @item.Images.Image2)" alt="">
+																	</div>
+																	<div>
+																		<label for="">image 3</label>
+																		<img src="@Url.Content("~/UploadHome/product/products/thumb/" + @item.Images.Image3)" alt="">
+																	</div>
+																	<div>
+																		<label for="">image 4</label>
+																		<img src="@Url.Content("~/UploadHome/product/products/thumb/" + @item.Images.Image4)" alt="">
+																	</div>
+															</div>
+
+															</div>
+															<hr>
+														</div>
+												</div>
+											</td>
+										</tr>
+										}
+
+
+								</tbody>
+							</table>
+							<nav class="page-number" aria-label="Page Navigation" style="margin-top: 40px">
+								<ul class="pagination">
+									@if (ViewData["PageCount"] is int pageCount && ViewData["PageNumber"] is int pageNumber)
+									{
+										for (int i = 1; i <= pageCount; i++)
+										{
+											<li class="page-item @(i == pageNumber ? "active" : "")">
+												<a class="page-link" href="?page=@i">@i</a>
+											</li>
+										}
+									}
+								</ul>
+							</nav>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Row end -->
+		</div>
 }
-    </tbody>
-</table>
+
+@section Scripts {
+<script>
+
+	document.querySelectorAll('.show-home-checkbox')
+		.forEach(function(checkbox) {
+    		checkbox.addEventListener('change', function() {
+				var productId = this.dataset.productId;
+				var value = this.checked ? 'Yes' : 'No';
+    			handleToggleShowHome(productId, value);
+			});
+		});
+
+	function handleToggleShowHome(id, value) {
+		var status = $('#status-id-' + id).text().trim();
+		console.log(status);
+		if (status === 'Active') {
+			$.ajax({
+					url: '@Url.Action("UpdateShowHome", "Products", new { area = "Admin" })',
+					type: 'POST',
+					data: {
+						id: id,
+						showOnHome: value
+					},
+					success: function (response) {
+						console.log(response.message);
+					},
+					error: function (xhr, status, error) {
+						console.error('ShowHome updated failed:', error);
+					}
+			});
+		}
+		else
+		{
+			alert('You can only change showHome when status is Active.');
+			$('#showHome-id-' + id).prop('checked', false);
+		}
+
+	}
+
+	document.querySelectorAll('.featured-checkbox')
+		.forEach(function(checkbox) {
+    		checkbox.addEventListener('change', function() {
+				var productId = this.dataset.productId;
+				var value = this.checked ? 1 : 0;
+    			handleToggleFeatured(productId, value);
+			});
+		});
+
+	function handleToggleFeatured(id, value) {
+		var status = $('#status-id-' + id).text().trim();
+		if (status === 'Active') {
+			$.ajax({
+				url: '@Url.Action("UpdateIsFeatured", "Products", new { area = "Admin" })',
+					type: 'POST',
+					data: {
+						id: id,
+						isFeatured: value
+					},
+					success: function (response) {
+						console.log(response.message);
+					},
+					error: function (xhr, status, error) {
+						console.error('Error updating is_featured :', error);
+					}
+			});
+		}
+		else
+		{
+			alert('You can only change is_featured when status is Active.');
+			$('#featured-id-' + id).prop('checked', false);
+		}
+
+	}
+
+	$(".btn-detail").click(function () {
+		var clickedId = $(this).attr('id');
+		var id = 'pro-' + clickedId.split('-')[2];
+		$('#' + id).slideToggle("slow");
+	});
+
+</script>
 }

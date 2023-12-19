@@ -5,96 +5,368 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 @section Title {
-    <h1>Product/Insert</h1>
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="bi bi-stickies"></i>
+        </li>
+        <li class="breadcrumb-item breadcrumb-active" aria-current="products"><a asp-action="Index">Products</a>/Insert</li>
+    </ol>
 }
-@section Content {
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Title" class="control-label"></label>
-                <input asp-for="Title" class="form-control" />
-                <span asp-validation-for="Title" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Slug" class="control-label"></label>
-                <input asp-for="Slug" class="form-control" />
-                <span asp-validation-for="Slug" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Keywords" class="control-label"></label>
-                <input asp-for="Keywords" class="form-control" />
-                <span asp-validation-for="Keywords" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Description" class="control-label"></label>
-                <input asp-for="Description" class="form-control" />
-                <span asp-validation-for="Description" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Detail" class="control-label"></label>
-                <input asp-for="Detail" class="form-control" />
-                <span asp-validation-for="Detail" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Care" class="control-label"></label>
-                <input asp-for="Care" class="form-control" />
-                <span asp-validation-for="Care" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Price" class="control-label"></label>
-                <input asp-for="Price" class="form-control" />
-                <span asp-validation-for="Price" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Amount" class="control-label"></label>
-                <input asp-for="Amount" class="form-control" />
-                <span asp-validation-for="Amount" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CategoryId" class="control-label"></label>
-                <input asp-for="CategoryId" class="form-control" />
-                <span asp-validation-for="CategoryId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="SubCategoryId" class="control-label"></label>
-                <input asp-for="SubCategoryId" class="form-control" />
-                <span asp-validation-for="SubCategoryId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PromotionId" class="control-label"></label>
-                <input asp-for="PromotionId" class="form-control" />
-                <span asp-validation-for="PromotionId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="ImagesId" class="control-label"></label>
-                <input asp-for="ImagesId" class="form-control" />
-                <span asp-validation-for="ImagesId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="IsFeatured" class="control-label"></label>
-                <input asp-for="IsFeatured" class="form-control" />
-                <span asp-validation-for="IsFeatured" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CreatedAt" class="control-label"></label>
-                <input asp-for="CreatedAt" class="form-control" />
-                <span asp-validation-for="CreatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="UpdatedAt" class="control-label"></label>
-                <input asp-for="UpdatedAt" class="form-control" />
-                <span asp-validation-for="UpdatedAt" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+@section Contentmain {
+    <!-- Content wrapper start -->
+    <div class="content-wrapper">
+    <!-- Row start -->
+    <div class="row gx-3">
+        <div class="col-xxl-12">
+            <div class="card card-370">
+                <div class="card-body">
+                    <div class="custom-tabs-container">
+                        <ul class="nav nav-tabs" id="formsTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" id="product-tab" data-bs-toggle="tab" href="#product" role="tab" aria-controls="product" aria-selected="true">Product</a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="Variantss" href="#" role="tab" aria-controls="Variantss" aria-selected="false">Variantss</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="formsTabContent">
+
+                            <div class="tab-pane fade show active" id="product" role="tabpanel">
+                                <form asp-action="Create" method="post" id="productForm" name="productForm">
+
+                                    <!-- Row start -->
+                                    <div class="row gx-3">
+                                        <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-8 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="Title" class="form-label">Enter Product title</label>
+                                                <div class="input-group">
+                                                    <input asp-for="Title" type="text" class="form-control" id="product-title" name="title" placeholder="title" autocomplete="off">
+                                                    <p> <span asp-validation-for="Title" class="text-danger"></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-2 col-sm-4 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="Slug" class="form-label">Slug</label>
+                                                <div class="input-group">
+                                                    <input asp-for="Slug" type="text" readonly style="background-color: #C0C0C0;" class="form-control" id="product-slug" name="slug" placeholder="slug">
+                                                    <p><span asp-validation-for="Slug" class="text-danger"></span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-2">
+                                            <label class="form-label">Category</label>
+                                            <div class="option-group">
+                                                <select asp-for="CategoryId" name="CategoryId" id="category" class="form-control">
+                                                    <option value="">Select a Category</option>
+                                                    @if (ViewData["ModelCategories"] is IQueryable<Category> categories && categories.Any())
+                                                    {
+                                                        foreach (var category in categories)
+                                                        {
+                                                            <option value="@category.Id">@category.Name</option>
+                                                        }
+                                                    }
+                                                </select>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-2">
+                                            <label class="form-label">Sub Category</label>
+                                            <div class="option-group">
+                                                <select asp-for="SubCategoryId" name="SubCategoryId" id="subCategory" class="form-control" style="overflow: hidden; white-space: normal; word-wrap: break-word;">
+                                                    <option value="">select</option>
+                                                @if (ViewData["ModelSubCategories"] is IQueryable<SubCategory> subCategories && subCategories.Any())
+                                                {
+                                                    foreach (var subCategory in subCategories)
+                                                    {
+                                                        var exploded = subCategory.Slug.Split("--");
+                                                        if (exploded.Length >= 2)
+                                                        {
+                                                            var CategoryName = string.Empty;
+                                                            if (ViewData["ModelCategories"] is IQueryable<Category> cate && cate.Any())
+                                                            {
+                                                                var category = cate.FirstOrDefault(c => c.Id == Convert.ToInt32(exploded[1]));
+                                                                if (category != null)
+                                                                {
+                                                                    CategoryName = category.Name;
+                                                                }
+                                                            }
+                                                            <option value="@subCategory.Id">@($"{exploded[0].Replace("-", " ")} / {CategoryName}")</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="@subCategory.Id">@($"{exploded[0].Replace("-", " ")}")</option>
+                                                        }
+                                                    }
+                                                }
+                                                </select>
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                        <div class="col-xxl-2">
+                                            <div class="mb-3">
+                                                <div>
+                                                    <label asp-for="Amount" class="form-label">Amount</label>
+                                                    <div class="input-group">
+                                                        <input asp-for="Amount" type="number" class="form-control" id="product-amount" name="amount" autocomplete="off" value="0">
+                                                        <p><span asp-validation-for="Amount" class="text-danger"></span></p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <label asp-for="Price" class="form-label">Price</label>
+                                                    <div class="input-group">
+                                                        <input asp-for="Price" type="number" class="form-control" id="product-price" name="price" autocomplete="off" value="0">
+                                                        <p><span asp-validation-for="Price" class="text-danger"></span></p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <label class="form-label">Promotion</label>
+                                                    <div class="option-group">
+                                                        <select name="promotion" id="promotion" class="form-control" style="overflow: hidden; white-space: normal; word-wrap: break-word;">
+                                                            <option value="">select</option>
+                                                            @if (ViewData["ModelPromotions"] is IEnumerable<Promotion> promotions && promotions.Any())
+                                                            {
+                                                                foreach (var promo in promotions)
+                                                                {
+                                                                    <option value="@promo.Id">@promo.Name</option>
+                                                                }
+                                                            }
+                                                        </select>
+                                                        <p></p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <label asp-for="Status" class="form-label">Status</label>
+                                                    <div class="mt-2">
+                                                        <div class="form-check form-check-inline">
+                                                            <input asp-for="Status" class="form-check-input" type="radio" name="status" id="StatusRadio1" value="1" checked>
+                                                            <label class="form-check-label" for="StatusRadio1">Active</label>
+                                                        </div>
+                                                        <div class="form-check form-check-inline">
+                                                            <input asp-for="Status" class="form-check-input" type="radio" name="status" id="StatusRadio2" value="0">
+                                                            <label class="form-check-label" for="StatusRadio2">Block</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <div id="image_id">
+                                                <input hidden id="image_1" name="image1" value="0">
+                                                    <input hidden id="image_2" name="image2" value="0">
+                                                    <input hidden id="image_3" name="image3" value="0">
+                                                    <input hidden id="image_4" name="image4" value="0">
+                                            </div>
+                                            <div class="mb-3">
+                                                <label  class="form-label">Image <span id="count-images">0</span>/4</label>
+                                                <div id="image" class="dropzone dz-clickable">
+                                                    <div class="dz-message needsclick">
+                                                    <br>Drop files here or click to upload.<br><br>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                        <div class="col-md-10">
+                                            <div class="mb-3">
+                                                <label asp-for="Keywords" class="form-label" for="keywords">Keywords</label>
+                                                <div>
+                                                    <input asp-for="Keywords" style="width: 1080px; height: 50px" type="text" name="keywords" id="product-keywords" autocomplete="off">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="mb-3">
+                                                <label asp-for="Detail" class="form-label" for="detail">Detail</label>
+                                                <div>
+                                                    <textarea asp-for="Detail" name="detail" id="product-detail" cols="70" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-5">
+                                            <div class="mb-3">
+                                                <label asp-for="Care" class="form-label" for="care">Care</label>
+                                                <div>
+                                                    <textarea asp-for="Care" name="care" id="product-care" cols="85" rows="3"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-10">
+                                            <div class="mb-3">
+                                                <label asp-for="Description" class="form-label" for="description">Description</label>
+                                                <div>
+                                                    <textarea asp-for="Description" name="description" id="product-description" cols="160" rows="6"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Row end -->
+                                    <!-- Form actions footer start -->
+                                    <div class="form-actions-footer">
+                                        <button type="reset" class="btn btn-light">Reset</button>
+                                        <button type="submit" class="btn btn-success" style="color: black;">Create</button>
+                                    </div>
+                                    <!-- Form actions footer end -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Row end -->
 </div>
+}
+
+@section Scripts {
+    <script>
+        var selectedCategoryId = '';
+        var selectedSubCategoryId = '';
+
+        $('#category').change(function () {
+            let selectedOption = $(this).find('option:selected');
+            selectedCategoryId = selectedOption.val();
+            element = $("#product-title");
+            $("button[type=submit]").prop('disabled', true);
+            $.ajax({
+                url: '/getSlug',
+                type: 'GET',
+                data: { title: element.val() },
+                dataType: 'json',
+                success: function (response) {
+                    $("button[type=submit]").prop('disabled', false);
+                    if (response["status"] == true) {
+                        var slug = '';
+
+                        if (selectedCategoryId) {
+                            slug = response["slug"] + '--' + selectedCategoryId;
+                            $('#product-slug').val(slug);
+                        }
+                        else
+                            slug = response["slug"];
+
+                        if (selectedSubCategoryId) {
+                            slug += '--' + selectedSubCategoryId;
+                            $('#product-slug').val(slug);
+                        }
+
+                        $('#product-slug').val(slug);
+
+                    }
+                }
+            });
+        });
+
+        $('#subCategory').change(function () {
+            let selectedOption = $(this).find('option:selected');
+            selectedSubCategoryId = selectedOption.val();
+            element = $("#product-title");
+            $("button[type=submit]").prop('disabled', true);
+            $.ajax({
+                url: '/getSlug',
+                type: 'GET',
+                data: { title: element.val() },
+                dataType: 'json',
+                success: function (response) {
+                    $("button[type=submit]").prop('disabled', false);
+                    if (response["status"] == true) {
+                        var slug = '';
+
+                        if (selectedCategoryId) {
+                            slug += response['slug'] + '--' + selectedCategoryId;
+                        }
+                        else
+                            slug += response['slug'];
+
+                        if (selectedSubCategoryId) {
+                            slug += '--' + selectedSubCategoryId;
+                        }
+
+                        $('#product-slug').val(slug);
+                    }
+                }
+            });
+        });
+
+        $("#product-title").change(function () {
+            element = $(this);
+            $("button[type=submit]").prop('disabled', true);
+            $.ajax({
+                url: '/getSlug',
+                type: 'GET',
+                data: { title: element.val() },
+                dataType: 'json',
+                success: function (response) {
+                    $("button[type=submit]").prop('disabled', false);
+                    if (response["status"] == true) {
+                        var slug = response["slug"];
+
+                        if (selectedCategoryId) {
+                            slug += '--' + selectedCategoryId;
+                            $('#product-slug').val(slug);
+                        }
+
+                        if (selectedSubCategoryId) {
+                            slug += '--' + selectedSubCategoryId;
+                            $('#product-slug').val(slug);
+                        }
+
+                        $('#product-slug').val(slug);
+
+                    }
+                }
+            });
+        });
+
+
+        Dropzone.autoDiscover = false;
+
+        // Khởi tạo Dropzone
+        const myDropzone = new Dropzone("#image", {
+            url: '@Url.Action("UploadFiles", "Products")',
+            maxFiles: 4,
+            paramName: "filedata",
+            addRemoveLinks: true,
+            acceptedFiles: "image/jpeg, image/png, image/gif",
+            init: function () {
+                this.on('addedfile', function (file) {
+                    if (this.files.length > 4) {
+                        this.removeFile(this.files[0]);
+                    }
+                });
+
+                this.on("success", function (file, response) {
+                    updateImageId(file, response.image_id);
+                    console.log(file);
+                });
+
+                this.on("sending", function (file, xhr, formData) {
+                    console.log("Sending file...");
+                });
+
+                this.on('removedfile', function (file) {
+                    if (file.inputId) {
+                        $(file.inputId).val('0');
+                    }
+                });
+            },
+            error: function (file, errorMessage) {
+                console.log(errorMessage);
+            }
+        });
+
+        function updateImageId(file, imageId) {
+            for (let i = 1; i <= 4; i++) {
+                let inputId = "#image_" + i;
+                if ($(inputId).val() === '0' || $(inputId).val() === imageId) {
+                    $(inputId).val(imageId);
+                    file.inputId = inputId;
+                    break;
+                }
+            }
+        }
+
+    </script>
 }

@@ -324,13 +324,13 @@ namespace PrivateWeb.Areas.Admin.Controllers
 		{
 			if (_context.Categories == null)
 			{
-				return Json(new { success = false, message = "Cập nhật ShowHome thất bại" });
+				return Json(new { success = false, message = "ShowHome update failed" });
 			}
 
 			var category = await _context.Categories.FindAsync(id);
 			if (category == null)
 			{
-				return Json(new { success = false, message = "Cập nhật ShowHome thất bại" });
+				return Json(new { success = false, message = "ShowHome update failed" });
 			}
 
 			try
@@ -340,13 +340,13 @@ namespace PrivateWeb.Areas.Admin.Controllers
 				await _context.SaveChangesAsync();
 
 				// Trả về một response JSON để thông báo rằng cập nhật đã thành công
-				return Json(new { success = true, message = "Cập nhật ShowHome thành công" });
+				return Json(new { success = true, message = "ShowHome update success" });
 			}
 			catch (DbUpdateConcurrencyException)
 			{
 				if (!CategoryExists(category.Id))
 				{
-					return Json(new { success = false, message = "Cập nhật ShowHome thất bại" });
+					return Json(new { success = false, message = "ShowHome update failed" });
 				}
 				else
 				{
@@ -360,13 +360,13 @@ namespace PrivateWeb.Areas.Admin.Controllers
 		{
 			if (_context.Categories == null)
 			{
-				return Json(new { success = false, message = "Cập nhật isFeatured thất bại" });
+				return Json(new { success = false, message = "IsFeatured update failed" });
 			}
 
 			var category = await _context.Categories.FindAsync(id);
 			if (category == null)
 			{
-				return Json(new { success = false, message = "Cập nhật isFeatured thất bại" });
+				return Json(new { success = false, message = "IsFeatured update failed" });
 			}
 
 			try
@@ -375,13 +375,13 @@ namespace PrivateWeb.Areas.Admin.Controllers
 				_context.Update(category);
 				await _context.SaveChangesAsync();
 
-				return Json(new { success = true, message = "Cập nhật isFeatured thành công" });
+				return Json(new { success = true, message = "IsFeatured update success" });
 			}
 			catch (DbUpdateConcurrencyException)
 			{
 				if (!CategoryExists(category.Id))
 				{
-					return Json(new { success = false, message = "Cập nhật isFeatured thất bại" });
+					return Json(new { success = false, message = "IsFeatured update failed" });
 				}
 				else
 				{

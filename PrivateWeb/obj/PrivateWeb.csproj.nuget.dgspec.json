@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-2\\PrivateWeb\\PrivateWeb\\PrivateWeb.csproj": {}
+    "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-3\\ASP\\PrivateASPMVC\\PrivateWeb\\PrivateWeb.csproj": {}
   },
   "projects": {
-    "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-2\\PrivateWeb\\PrivateWeb\\PrivateWeb.csproj": {
+    "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-3\\ASP\\PrivateASPMVC\\PrivateWeb\\PrivateWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-2\\PrivateWeb\\PrivateWeb\\PrivateWeb.csproj",
+        "projectUniqueName": "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-3\\ASP\\PrivateASPMVC\\PrivateWeb\\PrivateWeb.csproj",
         "projectName": "PrivateWeb",
-        "projectPath": "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-2\\PrivateWeb\\PrivateWeb\\PrivateWeb.csproj",
+        "projectPath": "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-3\\ASP\\PrivateASPMVC\\PrivateWeb\\PrivateWeb.csproj",
         "packagesPath": "C:\\Users\\21521\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-2\\PrivateWeb\\PrivateWeb\\obj\\",
+        "outputPath": "C:\\Users\\21521\\OneDrive\\Tài liệu\\DOAN\\REMOTE-3\\ASP\\PrivateASPMVC\\PrivateWeb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\21521\\AppData\\Roaming\\NuGet\\NuGet.Config",

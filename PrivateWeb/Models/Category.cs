@@ -22,4 +22,8 @@ public partial class Category
     public DateTime? CreatedAt { get; set; }
 
     public DateTime? UpdatedAt { get; set; }
+
+	public virtual ICollection<Product> Products { get; set; } = new List<Product>();
+
+	public virtual ICollection<SubCategory> SubCategories { get; set; } = new List<SubCategory>();
 }

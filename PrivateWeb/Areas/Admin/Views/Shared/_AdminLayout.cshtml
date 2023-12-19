@@ -70,7 +70,7 @@
 
 				<!-- Sidebar brand starts -->
 				<div class="sidebar-brand">
-					<a href="{{route('home.index" class="logo">
+					<a asp-area="Admin" asp-controller="Admin" asp-action="Index" class="logo">
 						<img style="border-radius: 100%" src="~/home/public/pictures/icon/Logo.png" alt="Max Admin Dashboard" />
 					</a>
 				</div>
@@ -96,7 +96,7 @@
 					<!-- Breadcrumb start -->
 					@RenderSection("Title", required: false)
 					<!-- Breadcrumb end -->
-
+					@RenderSection("PageNumber", required: false)
 					<!-- Header actions ccontainer start -->
 					<div class="header-actions-container">
 

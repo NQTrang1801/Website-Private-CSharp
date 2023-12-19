@@ -25,13 +25,13 @@ public partial class Product
 
     public int Status { get; set; }
 
-    public long? CategoryId { get; set; }
+    public int? CategoryId { get; set; }
 
-    public long? SubCategoryId { get; set; }
+    public int? SubCategoryId { get; set; }
 
-    public long? PromotionId { get; set; }
+    public int? PromotionId { get; set; }
 
-    public long? ImagesId { get; set; }
+    public int? ImagesId { get; set; }
 
     public string? ShowHome { get; set; }
 
@@ -41,5 +41,13 @@ public partial class Product
 
     public DateTime? UpdatedAt { get; set; }
 
-    public virtual ICollection<Variantss> Variantsses { get; set; } = new List<Variantss>();
+	public virtual Category? Category { get; set; }
+
+	public virtual ProductsImage? Images { get; set; }
+
+	public virtual Promotion? Promotion { get; set; }
+
+	public virtual SubCategory? SubCategory { get; set; }
+
+	public virtual ICollection<Variantss> Variantsses { get; set; } = new List<Variantss>();
 }

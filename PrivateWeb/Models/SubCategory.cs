@@ -15,7 +15,7 @@ public partial class SubCategory
 
     public string? Image { get; set; }
 
-    public long CategoryId { get; set; }
+    public int CategoryId { get; set; }
 
     public DateTime? CreatedAt { get; set; }
 
@@ -24,4 +24,8 @@ public partial class SubCategory
     public int IsFeatured { get; set; }
 
     public string ShowHome { get; set; } = null!;
+
+	public virtual Category Category { get; set; } = null!;
+
+	public virtual ICollection<Product> Products { get; set; } = new List<Product>();
 }
