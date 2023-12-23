@@ -1,0 +1,42 @@
+@{
+    var subCategories = ViewData["SubCategories"] as List<SubCategory>;
+}
+
+<div class="products-categories" id="products-categories">
+    <div class="container">
+        <div class="wrap">
+            <div class="heading">
+                <h2 class="title">Products Categories</h2>
+            </div>
+            <div class="dotgrid scrollto">
+                <div class="wrapper">
+                    @if (subCategories != null && subCategories.Any())
+                    {
+                        var count = 1;
+                        foreach (var subCategory in subCategories)
+                        {
+                            if (subCategory.ShowHome == "Yes")
+                            {
+                                <div class="item">
+                                    <div class="dot-image">
+                                        <div class="thumbnail hover">
+                                            <a href="#category-view-@count" id="type-@count-link">
+                                                <img src="@Url.Content("~/UploadHome/sub category/thumb/" + subCategory.Image)" alt="">
+                                                
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <div class="dot-info">
+                                        <h3 class="dot-title">@subCategory.Name</h3>
+                                    </div>
+                                </div>
+
+                                count++;
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -18,7 +18,7 @@
         </div>
 
         <div class="private-header-middle-section">
-            <a href="{{url('/')}}"class="title">Private</a>
+            <a href="/"class="title">Private</a>
         </div>
 
         <div class="private-header-right-section">
@@ -31,15 +31,43 @@
                         <span>Account</span>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="accountDropdown">
-                        <li><a class="dropdown-item" href="@Url.Page("/Account/Manage/Index")">@UserManager.GetUserName(User)</a></li>
-                        <li><a class="dropdown-item" href="@Url.Action("OrderHistories", "Home")">OrderHistories</a></li>
-                        <li><a class="dropdown-item" href="@Url.Action("Profile", "Home")">Profile</a></li>
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
+                            var user = await UserManager.GetUserAsync(User);
+                            if (user != null)
+                            {
+                                var firstName = user.FirstName;
+                                var lastName = user.LastName;
+                                var roles = await UserManager.GetRolesAsync(user);
+                                bool isAdminOrManager = roles.Any(role => role == "Admin" || role == "Manager");
+
+                                if (isAdminOrManager)
+                                {
+                                    <li>
+                                        <a class="dropdown-item" asp-area="Admin" asp-controller="Admin" asp-action="Index">
+                                            <span>@(isAdminOrManager ? "Admin/Manager" : "")</span>
+                                            @UserManager.GetUserId(User)
+                                        </a>
+                                    </li>
+                                }
+                                <li>
+                                    <a id="login-user-id" class="dropdown-item" href="@Url.Action("Profile", "Home")" data-user-id="@UserManager.GetUserId(User)">
+                                        @if (!string.IsNullOrEmpty(firstName) || !string.IsNullOrEmpty(lastName))
+                                        {
+                                            <span>@firstName @lastName</span>
+                                        }
+                                    </a>
+                                </li>
+                            }
+                            <li><a class="dropdown-item" href="@Url.Action("OrderHistories", "Home")">OrderHistories</a></li>
+                            <li><a class="dropdown-item" href="@Url.Action("Profile", "Home")">Profile</a></li>
+                        }
                         <li>
                             <form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                                 <button id="logout" type="submit" class="dropdown-item">Logout</button>
                             </form>
                         </li>
-                       
+
                     </ul>
                 </div>
             }
@@ -53,7 +81,7 @@
                 </div>
             }
             <div class="nav-item">
-                <a href="@Url.Action("Cart", "Home")" class="cart-wrapper js-cart-wrapper">
+                <a href="/Home/Cart" class="cart-wrapper js-cart-wrapper">
                     <i class="ri-shopping-bag-line icon--small" data-content="0">
                         <nav class="cart-navbar js-cart-navbar">
                             <div class="cart-content js-cart-content">
@@ -96,20 +124,26 @@
         </div>
     </nav>
 
+ 
     <!-- Menu container -->
     <nav class="menu-navbar js-menu-navbar">
         <div class="nav-close js-nav-close">
             <i class="ri-close-line"></i>
             Close
         </div>
-        <ul class="nav--categories">
-            <li><a href="@Url.Action("Categories", "Home")">Go to Categories</a></li>
-            <li><a asp-area="Admin" asp-controller="Admin" asp-action="Index">Go to Admin</a></li>
-            <li><a asp-area="Admin" asp-controller="Categories" asp-action="Index">Go to Admin Categories</a></li>
-        </ul>
+        @if (ViewData["Categories"] != null)
+        {
+            var categories = ViewData["Categories"] as List<Category>;
+            <ul class="nav--categories">
+                @foreach (var category in categories)
+                {
+                    <li><a href="@Url.Action("Index", "Categories", new { categoryName = category.Name, categoryId = category.Id })">@category.Name</a></li>
+                }
+            </ul>
+        }
         <ul class="nav--infor">
             <li>
-                <a href="">About Private</a>
+                <a asp-controller="Orders1" asp-action="Index">About Private</a>
             </li>
             <li>
                 <a href="">Services</a>

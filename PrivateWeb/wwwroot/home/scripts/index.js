@@ -55,35 +55,6 @@ $(document).ready(function () {
     $("body").css({ "overflow": "scroll" });
   }
 
-  // render dropdown cart
-  let htmlDropdownCart = ``;
-  const divCartContent = document.querySelector('.js-cart-content');
-  let sumQuantityCart = 0;
-  let sumCost = 0;
-  cart.forEach(item => {
-    sumQuantityCart += item.quantity;
-    sumCost += item.quantity * item.price*(1-item.sales);
-    htmlDropdownCart += `
-                <div class="cart-box">
-                  <div class="cart-image">
-                    <img src="${item.image[0]}">
-                  </div>
-                  <div class="cart-info">
-                    <p>${item.name}</p>
-                    <p>COLOR: <span>${item.image_color[0].color}</span></p>
-                    <p>SIZE: <span>${item.sizes[0]}</span></p>
-                    <p>QTY: <span>${item.quantity}</span></p>
-                    <p>$<span>${item.price*(1-item.sales)}</span></p>
-                  </div>
-                </div>
-  `
-  });
-  divCartContent.innerHTML = htmlDropdownCart;
-  const shoppingBag = document.querySelector('.ri-shopping-bag-line');
-  shoppingBag.setAttribute('data-content', sumQuantityCart);
-  document.querySelector('.cart-price').querySelector('p').nextElementSibling.querySelector('span').innerHTML = sumCost;
-  document.querySelector('.cart-checkout').querySelector('span').innerHTML = sumQuantityCart;
-
 });
 
 

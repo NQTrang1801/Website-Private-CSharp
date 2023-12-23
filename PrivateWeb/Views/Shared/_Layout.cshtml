@@ -16,6 +16,18 @@
     @await RenderSectionAsync("Styles", required: false)
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        df-messenger {
+            --df-messenger-button-titlebar-color: var(--secondary-color);
+            --df-messenger-chat-background-color: var(--light-color);
+            --df-messenger-send-icon: var(--secondary-color);
+        }
+    </style>
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+    <df-messenger intent="WELCOME"
+                  chat-title="Chatbot"
+                  agent-id="22d65df3-3149-4a2d-8e57-4c8cdafcafb6"
+                  language-code="vi"></df-messenger>
 </head>
 
 <body>
@@ -31,6 +43,41 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        const cart = JSON.parse(localStorage.getItem("cart")) || [];
+        renderDropDownCart();
+        function renderDropDownCart() {
+            let htmlDropdownCart = ``;
+            const divCartContent = document.querySelector('.js-cart-content');
+            let sumQuantityCart = 0;
+            let sumCost = 0;
+            cart.forEach(item => {
+                let priceProduct = item.price;
+                sumQuantityCart += item.QuantityPurchased
+
+                sumCost += item.QuantityPurchased * Number(priceProduct);
+                htmlDropdownCart += `
+                                    <div class="cart-box">
+                                      <div class="cart-image">
+                                        <img src="UploadHome/product/variantss/thumb/${item.image}">
+                                      </div>
+                                      <div class="cart-info">
+                                        <p>${item.title}</p>
+                                        <p>COLOR: <span>${item.ColorName}</span></p>
+                                        <p>SIZE: <span>${item.SizeName}</span></p>
+                                                <p>QTY: <span>${item.QuantityPurchased}</span></p>
+                                                <p><span>${priceProduct}</span> VND</p>
+                                      </div>
+                                    </div>
+                                    `;
+            });
+            divCartContent.innerHTML = htmlDropdownCart;
+            const shoppingBag = document.querySelector('.ri-shopping-bag-line');
+            shoppingBag.setAttribute('data-content', sumQuantityCart);
+            document.querySelector('.cart-price').querySelector('p').nextElementSibling.querySelector('span').innerHTML = sumCost;
+            document.querySelector('.cart-checkout').querySelector('span').innerHTML = sumQuantityCart;
+        }
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 

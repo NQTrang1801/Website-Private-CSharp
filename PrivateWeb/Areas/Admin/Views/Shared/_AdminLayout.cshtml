@@ -1,4 +1,10 @@
-﻿</html>
+﻿@using Microsoft.AspNetCore.Identity
+@using PrivateWeb.Areas.Identity.Data
+
+@inject SignInManager<PrivateWebUser> SignInManager
+@inject UserManager<PrivateWebUser> UserManager
+
+</html>
 <!doctype html>
 <html lang="en">
 
@@ -70,7 +76,7 @@
 
 				<!-- Sidebar brand starts -->
 				<div class="sidebar-brand">
-					<a asp-area="Admin" asp-controller="Admin" asp-action="Index" class="logo">
+					<a asp-area="Home" asp-controller="Home" asp-action="Index" class="logo">
 						<img style="border-radius: 100%" src="~/home/public/pictures/icon/Logo.png" alt="Max Admin Dashboard" />
 					</a>
 				</div>
@@ -130,6 +136,43 @@
 										</div>
 									</div>
 								</div>
+							</li>
+							<li>
+							@if (SignInManager.IsSignedIn(User))
+							{
+								<div class="dropdown">
+									<a class="btn dropdown-toggle" href="#" role="button" id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+										<i class="ri-user-line icon--small"></i>
+										<span>Account</span>
+									</a>
+									<ul class="dropdown-menu" aria-labelledby="accountDropdown">
+										@if (User.Identity.IsAuthenticated)
+										{
+											var user = await UserManager.GetUserAsync(User);
+											user = await UserManager.GetUserAsync(User);
+											var firstName = user.FirstName;
+											var lastName = user.LastName;
+
+											<li>
+												<a class="dropdown-item" href="@Url.Action("Profile", "Home")">
+													@if (!string.IsNullOrEmpty(firstName) || !string.IsNullOrEmpty(lastName))
+													{
+														<span>@firstName @lastName</span>
+													}
+												</a>
+											</li>
+											<li><a class="dropdown-item" href="@Url.Action("OrderHistories", "Home")">OrderHistories</a></li>
+											<li><a class="dropdown-item" href="@Url.Action("Profile", "Home")">Profile</a></li>
+										}
+										<li>
+											<form id="logoutForm" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+												<button id="logout" type="submit" class="dropdown-item">Logout</button>
+											</form>
+										</li>
+
+									</ul>
+								</div>
+							}
 							</li>
 						</ul>
 						<!-- Header actions end -->

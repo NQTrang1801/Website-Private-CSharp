@@ -1,0 +1,206 @@
+﻿@model PrivateWeb.Models.AspNetUser
+
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@section Title {
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <i class="bi bi-stickies"></i>
+        </li>
+        <li class="breadcrumb-item breadcrumb-active" aria-current="Users">Users/Edit</li>
+    </ol>
+}
+
+@section Search {
+    <form asp-action="Index" method="get">
+        <div class="input-group">
+            <input type="text" name="searchString" class="form-control" placeholder="Search">
+            <button class="btn" type="submit">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </form>
+}
+
+@section Contentmain {
+    <div class="row gx-3">
+        <div class="col-xxl-12">
+            <div class="card card-370">
+                <div class="card-body">
+                    <div class="custom-tabs-container">
+                        <ul class="nav nav-tabs" id="formsTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" id="users-tab" asp-area="Admin" asp-controller="AspNetUsers" asp-action="Create" role="tab" aria-controls="users" aria-selected="false">Users</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content" id="formsTabContent">
+
+                            <div class="tab-pane fade show active" id="sub-category" role="tabpanel">
+                                <form asp-action="Create" method="post" id="insertForm" name="insertForm">
+
+                                    <!-- Row start -->
+                                    <div class="row gx-3">
+                                        <div class="col-xxl-6 col-xl-6 col-lg-8 col-md-8 col-sm-8 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="Id" class="control-label"></label>
+                                                <div class="input-group">
+                                                    <input asp-for="Id" class="form-control" />
+                                                    <span asp-validation-for="Id" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-4 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="FirstName" class="control-label"></label>
+
+                                                <div class="input-group">
+                                                    <input asp-for="FirstName" class="form-control" />
+                                                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-4 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="LastName" class="control-label"></label>
+                                                <div class="input-group">
+                                                    <input asp-for="LastName" class="form-control" />
+                                                    <span asp-validation-for="LastName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-4 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="UserName" class="control-label"></label>
+                                                <div class="input-group">
+                                                    <input asp-for="UserName" class="form-control" />
+                                                    <span asp-validation-for="UserName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-4 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="NormalizedUserName" class="control-label"></label>
+                                                <div class="input-group">
+                                                    <input asp-for="NormalizedUserName" class="form-control" />
+                                                    <span asp-validation-for="NormalizedUserName" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-4 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="Email" class="control-label"></label>
+                                                <div class="input-group">
+                                                    <input asp-for="Email" class="form-control" />
+                                                    <span asp-validation-for="Email" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-4 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="NormalizedEmail" class="control-label"></label>
+
+                                                <div class="input-group">
+                                                    <input asp-for="NormalizedEmail" class="form-control" />
+                                                    <span asp-validation-for="NormalizedEmail" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-4 col-12">
+                                            <div class="mb-3">
+                                                <div class="input-group">
+                                                    <label class="form-check-label">
+                                                        <input class="form-check-input" asp-for="EmailConfirmed" /> @Html.DisplayNameFor(model => model.EmailConfirmed)
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-4 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="PasswordHash" class="control-label"></label>
+
+                                                <div class="input-group">
+                                                    <input asp-for="PasswordHash" class="form-control" />
+                                                    <span asp-validation-for="PasswordHash" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-4 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="SecurityStamp" class="control-label"></label>
+
+                                                <div class="input-group">
+                                                    <input asp-for="SecurityStamp" class="form-control" />
+                                                    <span asp-validation-for="SecurityStamp" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-4 col-12">
+                                            <div class="mb-3">
+                                                <label asp-for="ConcurrencyStamp" class="control-label"></label>
+
+                                                <div class="input-group">
+                                                    <input asp-for="ConcurrencyStamp" class="form-control" />
+                                                    <span asp-validation-for="ConcurrencyStamp" class="text-danger"></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-4 col-12">
+                                            <div class="form-group">
+                                                <label asp-for="PhoneNumber" class="control-label"></label>
+                                                <input asp-for="PhoneNumber" class="form-control" />
+                                                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-4 col-12">
+                                            <div class="form-group form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" asp-for="PhoneNumberConfirmed" /> @Html.DisplayNameFor(model => model.PhoneNumberConfirmed)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-4 col-12">
+                                            <div class="form-group form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" asp-for="TwoFactorEnabled" /> @Html.DisplayNameFor(model => model.TwoFactorEnabled)
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-xl-3 col-sm-4 col-12">
+                                            <div class="form-group">
+                                                <label asp-for="LockoutEnd" class="control-label"></label>
+                                                <input asp-for="LockoutEnd" class="form-control" />
+                                                <span asp-validation-for="LockoutEnd" class="text-danger"></span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group form-check">
+                                            <label class="form-check-label">
+                                                <input class="form-check-input" asp-for="LockoutEnabled" /> @Html.DisplayNameFor(model => model.LockoutEnabled)
+                                            </label>
+                                        </div>
+                                        <div class="form-group">
+                                            <label asp-for="AccessFailedCount" class="control-label"></label>
+                                            <input asp-for="AccessFailedCount" class="form-control" />
+                                            <span asp-validation-for="AccessFailedCount" class="text-danger"></span>
+                                        </div>
+
+                                    </div>
+                                    <!-- Row end -->
+                                    <!-- Form actions footer start -->
+                                    <div class="form-actions-footer">
+                                        <button type="reset" class="btn btn-light">Reset</button>
+                                        <button type="submit" class="btn btn-success" style="color: black;">Create</button>
+                                    </div>
+                                    <!-- Form actions footer end -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+}

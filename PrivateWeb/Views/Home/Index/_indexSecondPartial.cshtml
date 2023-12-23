@@ -1,30 +1,33 @@
+@{
+    var products = ViewData["Products"] as List<PrivateWeb.Models.Product>;
+}
+
 <section class="second-introduce-products">
-      <div class="second-introduce-title">
+    <div class="second-introduce-title">
         <h2>BIG SALE OF THE MONTH</h2>
         <p>Now or Never</p>
-        <a href="{{url('categories','sale')}}">Take a closer look</a>
-      </div>
-      <div class="second-introduce-content">
+        <a>Take a closer look</a>
+    </div>
+    <div class="second-introduce-content">
         <div class="second-introduce-left">
-          <img src="~/home/public/pictures/display-products/female-posting.jpg" alt="">
+            <img src="home/public/pictures/display-products/female-posting.jpg" alt="" />
         </div>
         <div class="second-introduce-right">
-          @* @if ($productsSale->isNotEmpty())
-          @foreach ($productsSale as $product)
-          <div>
-            <a href="">
-              <img src="{{ file_exists(public_path('uploads/product/products/thumb/'.$product->images->image_1)) ? asset('uploads/product/products/thumb/'.$product->images->image_1) : asset('uploads/product/products/thumb/null.png') }}" alt="">
-            </a>
-            @php
-              
-            @endphp
-            <div>
-              <p class="second-introduce-name">{{$product->title}}</p>
-              <p class="second-introduce-price"><del>{{$product->price}}</del><del>VND</del> <span>{{$product->price * $product->promotion->value}}</span> VND</p>
-            </div>
-          </div>
-          @endforeach
-          @endif *@
+            @if (products != null && products.Any())
+            {
+                @foreach (var product in products)
+                {
+                    <div>
+                        <a href="@Url.Action("Index", "Products", new { productId = product.Id })">
+                            <img src="@Url.Content("~/UploadHome/product/products/thumb/" + product.Images?.Image1)" alt="" />
+                        </a>
+                        <div>
+                            <p class="second-introduce-name" style="font-size: 12px; margin-bottom: 0px">@product.Title</p>
+                            <p class="second-introduce-price"><del>@product.Price</del><del>VND</del> <span>@(product.Price * product.Promotion?.Value)</span> VND</p>
+                        </div>
+                    </div>
+                }
+            }
         </div>
-      </div>
-    </section>
+    </div>
+</section>

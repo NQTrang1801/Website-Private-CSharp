@@ -1,0 +1,70 @@
+@using Microsoft.AspNetCore.Identity
+@using PrivateWeb.Areas.Identity.Data
+
+@inject SignInManager<PrivateWebUser> SignInManager
+@inject UserManager<PrivateWebUser> UserManager
+
+<form  id="orderForm">
+    <div class="container">
+        <div class="l-container">
+            <div class="l-top-container">
+                <p>DELIVERY</p>
+            </div>
+            <div class="l-mid-container">
+                <p><i class="ri-truck-line"></i> Ship to an address</p>
+            </div>
+            <div class="l-bot-container">
+                <div class="info-wraper">
+                    <p>Information</p>
+                    <div class="gender">
+                        <span><input type="radio" name="Gender" value="male"> male</span>
+                        <span><input type="radio" name="Gender" value="female"> female</span>
+                        <span><input type="radio" name="Gender" value="other"> other</span>
+                    </div>
+                    <div class="contact">
+                        <input type="text" placeholder="Name">
+                        <input type="text" placeholder="Phone">
+                    </div>
+                </div>
+                <div class="adress-wraper">
+                    <p>Shipping address</p>
+                    <div class="info-address">
+                        <input name="ShippingAddress" type="text" placeholder="Address">
+                    </div>
+                    <div class="requirements">
+                        <input name="OtherRequirements" type="text" placeholder="Other requirements">
+                        <div class="requirements-check">
+                            <span><input type="radio" name="PaymentMethod" value="cash on delivery"> Cash on delivery</span>
+                            <span><input type="radio" name="PaymentMethod" value="digital payment"> Digital payment</span>
+                        </div>
+                        <input readonly type="text" value="1" name="OrderStatus" />
+                        <input readonly id="order-user-id" type="text" value="" name="UserId" />
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="r-container">
+            <div class="r-container-head">
+                <span>ORDER SUMMARY</span>
+            </div>
+            <div>
+                <div class="inf-order">
+                    <p>Subtotal</p>
+                    <p><input readonly type="text" name="Subtotal" /> </p>
+                    <p>Standard Shipping</p>
+                    <p><input readonly type="text" name="StandardShipping" value="0" /> VND</p>
+                    <p>Free when you <a >Sign in</a> or <a>Create an Account</a></p>
+                    <p></p>
+                    <p>Estimated Total</p>
+                    <p><input readonly  type="text" value="" name="EstimatedTotal" /> VND</p>
+                    <p>Taxes finalized at the end of checkout</p>
+                    
+                </div>
+                <div class="checkout-wapper">
+                    <input type="submit" value="Order now">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

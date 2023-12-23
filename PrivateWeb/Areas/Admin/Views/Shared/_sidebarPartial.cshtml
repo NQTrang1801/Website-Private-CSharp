@@ -72,10 +72,10 @@
                 <div class="sidebar-submenu">
                     <ul>
                         <li>
-                            <a href="{{ route('users.indexStaff') }}">Staff</a>
+                            <a asp-area="Admin" asp-controller="AspNetUsers" asp-action="IndexMember">Member</a>
                         </li>
                         <li>
-                            <a href="{{ route('users.indexCustomer') }}">Customers</a>
+                            <a asp-area="Admin" asp-controller="AspNetUsers" asp-action="IndexAdmin">Admin</a>
                         </li>
                     </ul>
                 </div>

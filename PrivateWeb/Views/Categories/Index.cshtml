@@ -1,0 +1,113 @@
+@{
+    ViewData["Title"] = "Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/home/styles/pages/categories.css" />
+    <link rel="stylesheet" href="~/home/styles/pages/media-categories.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+}
+
+<main class="main-index">
+
+    <partial name="_categoriesSliderPartial.cshtml" />
+    <!-- private-header-video -->
+
+    <partial name="_categoriesTopShowPartial.cshtml" />
+    <!-- first section -->
+
+    <partial name="_categoriesTypesOfProductPartial.cshtml" />
+    <!-- second section -->
+
+    <partial name="_categoriesProductsPartial.cshtml" />
+    <!-- third section -->
+    <div class="banner">
+        <div class="container">
+            <div class="wrap">
+                <div class="content">
+                    <span>Promo</span>
+                    <h3 class="title1">Get ready!<br>Winter is coming</h3>
+                    <div class="button"><a href="">Go get it</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <partial name="_categoriesInstagramPartial.cshtml" />
+</main>
+
+@section Scripts {
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script type="module" src="~/home/scripts/categories.js"></script>
+    <script>
+        document.querySelectorAll('.js-btn-add-cart')
+            .forEach(item => {
+                item.addEventListener('click', () => {
+                    let productId = item.dataset.productId;
+                    console.log("click: " + productId);
+                    addToCart(productId);
+                })
+            })
+        cart = JSON.parse(localStorage.getItem("cart")) || [];
+        function addToCart(productId) {
+            $.ajax({
+                type: 'POST',
+                url: '@Url.Action("AddToCartDefault", "Categories")',
+                data: { productId: productId },
+                dataType: 'json',
+                success: function (response) {
+                    if (response.success == true) {
+                        let variant = response.variant;
+                        variant.ColorName = response.color;
+                        variant.SizeName = response.size;
+                        variant.QuantityPurchased = 1;
+                        variant.ProductPromoValue = $("#product-promo-value-id-" + productId).text();
+                        cart.push(variant);
+                        localStorage.setItem("cart", JSON.stringify(cart));
+                        renderDropDownCart();
+                    } else {
+                        console.error("Not found");
+                    }
+                },
+                error: function (xhr, status, error) {
+                    console.error("fail:", error);
+                }
+            });
+        }
+        renderDropDownCart();
+        function renderDropDownCart() {
+            let htmlDropdownCart = ``;
+            const divCartContent = document.querySelector('.js-cart-content');
+            let sumQuantityCart = 0;
+            let sumCost = 0;
+            cart.forEach(item => {
+                let priceProduct = parseFloat(document.getElementById(`product-price-id-${item.productId}`).innerHTML);
+                sumQuantityCart += item.QuantityPurchased
+                
+                sumCost += item.QuantityPurchased * Number(priceProduct);
+                htmlDropdownCart += `
+                            <div class="cart-box">
+                              <div class="cart-image">
+                                <img src="UploadHome/product/variantss/thumb/${item.image}">
+                              </div>
+                              <div class="cart-info">
+                                <p>${item.title}</p>
+                                <p>COLOR: <span>${item.ColorName}</span></p>
+                                <p>SIZE: <span>${item.SizeName}</span></p>
+                                        <p>QTY: <span>${item.QuantityPurchased}</span></p>
+                                        <p><span>${priceProduct}</span> VND</p>
+                              </div>
+                            </div>
+                            `;
+            });
+            divCartContent.innerHTML = htmlDropdownCart;
+            const shoppingBag = document.querySelector('.ri-shopping-bag-line');
+            shoppingBag.setAttribute('data-content', sumQuantityCart);
+            document.querySelector('.cart-price').querySelector('p').nextElementSibling.querySelector('span').innerHTML = sumCost;
+            document.querySelector('.cart-checkout').querySelector('span').innerHTML = sumQuantityCart;
+        }
+    </script>
+}
+
+
+

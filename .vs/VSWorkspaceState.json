@@ -1,13 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\PrivateWeb",
-    "\\PrivateWeb\\Areas",
-    "\\PrivateWeb\\Areas\\Identity",
-    "\\PrivateWeb\\Areas\\Identity\\Pages",
-    "\\PrivateWeb\\Areas\\Identity\\Pages\\Account",
-    "\\PrivateWeb\\Migrations"
+    ""
   ],
-  "SelectedNode": "\\PrivateWeb\\Areas\\Identity\\Pages\\Account\\Register.cshtml.cs",
+  "SelectedNode": "\\PrivateWeb.sln",
   "PreviewInSolutionExplorer": false
 }

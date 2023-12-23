@@ -259,9 +259,8 @@
                                                 <a href="#" class="edit-contact-card btn-create-variant" data-bs-toggle="modal" data-bs-target="#editVariant">
                                                     <i class="bi bi-clipboard-plus"></i>
                                                 </a>
-
                                                 <a href="#" class="edit-contact-card" style="margin-top: 60px">
-                                                    <i class="bi bi-x-square"></i>
+                                                    <i class="bi bi-x-square"></i>   
                                                 </a>
 
                                             </div>
@@ -323,8 +322,7 @@
                                 <!-- Row end -->
                                 <!-- Form actions footer start -->
                                 <div class="form-actions-footer">
-                                    <button class="btn btn-light">Reset</button>
-                                    <button class="btn btn-success">Save</button>
+                                    <a asp-area="Admin" asp-controller="Products" asp-action="Index" class="btn btn-success">Save</a>
                                 </div>
                                 <!-- Form actions footer end -->
                             </div>
@@ -786,6 +784,8 @@
                 $("#editVariant button[type=submit]").html('Update');
                 $('#img-current').html($(`#varriant-image-id-${variantId}`).text());
                 $('#variant-img').attr('src', "~/UploadHome/product/variantss/thumb/" + $(`#varriant-image-id-${variantId}`).text());
+                selectedColorId = $('#editVariant select[name="ColorId').find('option:selected').val();
+                selectedSizeId = $('#editVariant select[name="SizeId').find('option:selected').val();
             });
         });
 
@@ -833,24 +833,18 @@
         });
 
         function deleteVariant(id) {
-            var url = '{{ route("variantss.delete", ":id") }}';
-            var newUrl = url.replace(':id', id);
             $.ajax({
-                url: newUrl,
-                type: 'delete',
-                data: {},
-                dataType: 'json',
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                url: '/Admin/Variantsses/Delete/' + id,
+                type: 'POST',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("RequestVerificationToken", $('input[name="__RequestVerificationToken"]').val());
                 },
                 success: function (response) {
-                    $("button[type=submit]").prop('disabled', false);
-                    if (response["status"] == true) {
-                        alert("Biến thể đã được xóa thành công");
-                        window.location.reload();
-                    } else {
-                        alert("not found: " + response['id']);
-                    }
+                    console.log("Xóa thành công!");
+                    window.location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error("Đã xảy ra lỗi: " + error);
                 }
             });
         }

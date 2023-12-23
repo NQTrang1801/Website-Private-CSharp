@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using static NuGet.Packaging.PackagingConstants;
 
 namespace PrivateWeb.Models;
 
@@ -45,7 +46,11 @@ public partial class PrivateWebContext : DbContext
 
 	public virtual DbSet<Variantss> Variantsses { get; set; }
 
-	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    public virtual DbSet<Orders> Orders { get; set; }
+    public virtual DbSet<OrderDetails> OrderDetails { get; set; }
+
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
 		=> optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=PrivateWeb;Trusted_Connection=True;MultipleActiveResultSets=true");
 
@@ -448,7 +453,54 @@ public partial class PrivateWebContext : DbContext
 				.HasConstraintName("FK__variantss__size___693CA210");
 		});
 
-		OnModelCreatingPartial(modelBuilder);
+        modelBuilder.Entity<Orders>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Id).HasColumnName("Id").ValueGeneratedOnAdd();
+
+            entity.Property(e => e.Gender).HasMaxLength(20);
+            entity.Property(e => e.Name).HasMaxLength(100);
+            entity.Property(e => e.Phone).HasMaxLength(20);
+            entity.Property(e => e.ShippingAddress).HasMaxLength(255);
+            entity.Property(e => e.OtherRequirements).HasMaxLength(255);
+            entity.Property(e => e.PaymentMethod).HasMaxLength(50);
+            entity.Property(e => e.Subtotal).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.StandardShipping).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.EstimatedTotal).HasColumnType("decimal(18, 2)");
+            entity.Property(e => e.OrderStatus).HasMaxLength(50);
+            entity.Property(e => e.UserId).HasMaxLength(450);
+
+            entity.HasOne(d => d.User)
+                .WithMany()
+                .HasForeignKey(d => d.UserId)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("FK_Orders_AspNetUsers_UserId");
+        });
+
+        modelBuilder.Entity<OrderDetails>(entity =>
+        {
+            entity.HasKey(e => e.Id);
+            entity.Property(e => e.Id).HasColumnName("Id").ValueGeneratedOnAdd();
+
+            entity.Property(e => e.OrderID).IsRequired();
+            entity.Property(e => e.VariantID).IsRequired();
+            entity.Property(e => e.Quantity).IsRequired();
+            entity.Property(e => e.Price).HasColumnType("decimal(18, 2)");
+
+            entity.HasOne(d => d.Order)
+                .WithMany()
+                .HasForeignKey(d => d.OrderID)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("FK_OrderDetails_Orders_OrderID");
+
+            entity.HasOne(d => d.Variant)
+                .WithMany()
+                .HasForeignKey(d => d.VariantID)
+                .OnDelete(DeleteBehavior.Restrict)
+                .HasConstraintName("FK_OrderDetails_Variants_variantID");
+        });
+
+        OnModelCreatingPartial(modelBuilder);
 	}
 
 	partial void OnModelCreatingPartial(ModelBuilder modelBuilder);

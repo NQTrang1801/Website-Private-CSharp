@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.CodeAnalysis;
 using Microsoft.EntityFrameworkCore;
 using PrivateWeb.Models;
 
 namespace PrivateWeb.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin, Manager")]
     [Area("Admin")]
     public class VariantssesController : Controller
     {
@@ -20,10 +23,40 @@ namespace PrivateWeb.Areas.Admin.Controllers
         }
 
         // GET: Admin/Variantsses
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString, int? page)
         {
-            var privateWebContext = _context.Variantsses.Include(v => v.Color).Include(v => v.Product).Include(v => v.Promotion).Include(v => v.Size);
-            return View(await privateWebContext.ToListAsync());
+            int pageSize = 6; // Số lượng mục trên mỗi trang
+            int pageNumber = page ?? 1;
+
+            IQueryable<Variantss> variantss = _context.Variantsses
+                    .Include(p => p.Product)
+                    .Include(p => p.Size)
+                    .Include(p => p.Color)
+                    .Include(p => p.Promotion);
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                variantss = variantss.Where(c => c.Title.Contains(searchString));
+                variantss = variantss.Where(p =>
+                    p.Title.Contains(searchString) ||
+                    (p.Product.Title != null && p.Product.Title.Contains(searchString))
+                );
+            }
+
+            int totalCount = await variantss.CountAsync();
+            int pageCount = (int)Math.Ceiling(totalCount / (double)pageSize);
+
+            var model = await variantss
+                .OrderBy(c => c.Id)
+                .OrderByDescending(c => c.CreatedAt)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .ToListAsync();
+
+            ViewData["PageCount"] = pageCount;
+            ViewData["PageNumber"] = pageNumber;
+
+            return View(model);
         }
 
         // GET: Admin/Variantsses/Details/5
@@ -227,13 +260,15 @@ namespace PrivateWeb.Areas.Admin.Controllers
                 return Problem("Entity set 'PrivateWebContext.Variantsses'  is null.");
             }
             var variantss = await _context.Variantsses.FindAsync(id);
+            var idP = variantss?.ProductId;
             if (variantss != null)
             {
                 _context.Variantsses.Remove(variantss);
+                await _context.SaveChangesAsync();
             }
             
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+           
+            return View(variantss);
         }
 
         private bool VariantssExists(int id)

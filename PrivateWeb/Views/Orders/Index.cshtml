@@ -1,0 +1,68 @@
+
+@{
+    ViewData["Title"] = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/home/styles/pages/checkout.css">
+}
+
+<main class="main-checkout">
+
+    <partial name="_checkoutForm.cshtml" />
+
+
+</main>
+@section Scripts {
+   <script src="~/home/scripts/checkout.js"></script>
+   <script>
+       $(document).ready(function () {
+            const currentURL = window.location.href;
+            const parts = currentURL.split('=');
+            const lastPart = parts[parts.length - 1];
+
+            const dataElements = document.querySelector(".inf-order").querySelectorAll("input");
+
+
+            let userId = $("#login-user-id").data('user-id');
+            $("#order-user-id").val(userId);
+            dataElements[0].value = lastPart;
+            dataElements[1].value = 0;
+            dataElements[2].value = lastPart;
+            $('#orderForm').on('submit', function (e) {
+                e.preventDefault(); // Ngăn chặn gửi form theo cách thông thường
+
+                // Lấy dữ liệu từ form
+                var formData = $(this).serialize();
+
+                // Gửi yêu cầu Ajax tới action Create trong controller OrdersController
+                $.ajax({
+                    url: '@Url.Action("Create", "Orders")',
+                    method: 'POST',
+                    data: formData,
+                    success: function (response) {
+                        if (response.success) {
+                            // Xử lý phản hồi thành công nếu cần
+                            console.log(response.message);
+                            console.log('ID đơn hàng đã tạo: ' + response.orderId);
+                            // Ví dụ: Hiển thị thông báo, điều hướng người dùng đến trang khác, v.v.
+                        } else {
+                            // Xử lý lỗi từ phản hồi nếu có
+                            console.error(response.message);
+                            // Ví dụ: Hiển thị thông báo lỗi cho người dùng
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        alert("successfull order!");
+                        localStorage.removeItem('cart');
+                        window.location.href = "/";
+                    }
+                });
+            });
+
+
+       });
+   </script>
+}
+

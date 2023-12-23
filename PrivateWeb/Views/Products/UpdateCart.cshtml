@@ -1,0 +1,119 @@
+@{
+    ViewData["Title"] = "ProductDetails";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section Styles {
+    <link rel="stylesheet" href="~/home/styles/pages/product-detail.css">
+    <style>
+        .block-color {
+            opacity: 0.5;
+        }
+    </style>
+}
+
+
+<main class="main-product-detail">
+        <partial name="_productDetailData.cshtml" />
+
+        <div class="button-back">
+            <i class="ri-arrow-left-line"></i>
+            Back
+        </div>
+        <div class="product-detail-container">
+
+        </div>
+ </main>
+
+
+@section Scripts {
+    <script type="module" src="~/home/scripts/index.js"></script>
+    <script>
+        $(document).ready(function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const indexCart = urlParams.get('indexCart');
+
+            console.log('Giá trị IndexCart:', indexCart);
+
+            if (indexCart !== null) {
+                console.log('Giá trị IndexCart:', indexCart);
+                $('.js-btn-add-cart').text('Update Cart');
+            } else {
+                console.log('Tham số IndexCart không tồn tại trong URL.');
+            }
+
+            let colorId = 0;
+            $('.block-color').click(function () {
+                $('.block-color').removeClass('active-color').css('opacity', '0.5');
+                $(this).addClass('active-color').css('opacity', '1');
+
+                const selectedColorId = $(this).find('img').attr('data-color-id');
+                const selectedColorName = $(this).find('img').attr('data-content');
+                colorId = selectedColorId;
+                $('#active-color-name').text(selectedColorName);
+                $('.product-size > div').hide();
+                $(`.group-color-${selectedColorId}`).show();
+                const defaultSize = $(`.group-color-${selectedColorId} > div:first-child`);
+                defaultSize.click();
+            });
+
+            const defaultColor = $('.default-color');
+            if (defaultColor.length > 0) {
+                defaultColor.trigger('click');
+            }
+
+            $('.product-size > div').click(function () {
+                $('.product-size > div').removeClass('active-size').css('border-width', '1px');
+                $(this).addClass('active-size').css('border-width', '4px');
+                const sizeId = $(this).attr('data-size-id');
+            });
+
+            $('.js-btn-add-cart').click(function () {
+                const productId = $('#product-id').text();
+                const sizeId = $('.product-size > div.active-size').attr('data-size-id');
+                console.log('Selected Size ID:', sizeId);
+                console.log('Selected Color ID:', colorId);
+
+                if (colorId && sizeId) {
+                    $("#notification-add-cart").text('');
+                    $.ajax({
+                        type: 'POST',
+                        url: '@Url.Action("AddToCartDetails", "Products")',
+                        data: { productId: productId,  sizeId: sizeId, colorId: colorId},
+                        dataType: 'json',
+                        success: function (response) {
+                            if (response.success == true) {
+                                let variant = response.variant;
+                                variant.ColorName = response.color;
+                                variant.SizeName = response.size;
+                                variant.QuantityPurchased = cart[indexCart].QuantityPurchased;
+                                cart[indexCart] = variant;
+                                localStorage.setItem("cart", JSON.stringify(cart));
+                                renderDropDownCart();
+                            } else {
+                                console.error("Not found");
+                                $("#notification-add-cart").text('Color or Size not selected');
+                            }
+                        },
+                        error: function (xhr, status, error) {
+                            console.error("fail:", error);
+                        }
+                    });
+                } else {
+                    $("#notification-add-cart").text('Color or Size not selected');
+                }
+            });
+        });
+
+        const detailImageRight = document.querySelector('.detail-image-right img');
+        const detailImageLeft = document.querySelectorAll('.detail-image-left img');
+
+        detailImageLeft.forEach((img, index) => {
+            img.addEventListener('click', function () {
+                detailImageRight.src = this.src;
+            });
+        });
+
+    </script>
+}

@@ -1,0 +1,145 @@
+@{
+    var product = ViewData["Product"] as PrivateWeb.Models.Product;
+    var colorList = ViewData["ColorList"] as List<PrivateWeb.Models.Variantss>;
+    var variants = ViewData["Variantsses"] as List<PrivateWeb.Models.Variantss>;
+}
+
+<div class="product-detail-container">
+@if (product != null)
+{
+    <div class="product-detail-info">
+        <div class="product-detail-image">
+            <div class="detail-image-left">
+                @if (!string.IsNullOrEmpty(product.Images?.Image1))
+                {
+                    <div>
+                        <img src="@Url.Content("~/UploadHome/product/products/thumb/" + product.Images.Image1)" alt="">
+                    </div>
+                }
+                @if (!string.IsNullOrEmpty(product.Images?.Image2))
+                {
+                    <div>
+                        <img src="@Url.Content("~/UploadHome/product/products/thumb/" + product.Images.Image2)" alt="">
+                    </div>
+                }
+                @if (!string.IsNullOrEmpty(product.Images?.Image3))
+                {
+                    <div>
+                        <img src="@Url.Content("~/UploadHome/product/products/thumb/" + product.Images.Image3)" alt="">
+                    </div>
+                }
+                @if (!string.IsNullOrEmpty(product.Images?.Image4))
+                {
+                    <div>
+                        <img src="@Url.Content("~/UploadHome/product/products/thumb/" + product.Images.Image4)" alt="">
+                    </div>
+                }
+            </div>
+            <div class="detail-image-right">
+                @if (!string.IsNullOrEmpty(product.Images?.Image1))
+                {
+                    <img src="@Url.Content("~/UploadHome/product/products/thumb/" + product.Images.Image1)" alt="">
+                }
+            </div>
+        </div>
+    </div>
+    @if (variants != null && variants.Any())
+    {
+        <div class="product-detail-summary">
+            <div class="detail-summary">
+                <div class="summary-name">
+                    <p>@product.Title</p>
+                    <p>#<span id="product-id">@product.Id</span></p>
+                    @if (product.Promotion != null && product.Promotion?.Value != null)
+                    {
+                        <p class="detail-price">@((product.Price * (1 - product.Promotion.Value))) VND</p>
+                    }
+                </div>
+                <div class="summary-color">
+                    @if (colorList != null && colorList.Any())
+                    {
+                        <div>
+                            <p>Color</p>
+                                <p id="active-color-name" style="font-weight: 600;">@colorList.First().Color.Name
+                                    <span>@colorList.First().ColorId</span>
+                                 </p>
+                        </div>
+                        <div class="summary-color-item">
+                                @{
+                                        var isFirstImg = true;
+                                }
+                                @foreach (var sp in colorList)
+                                {
+                                    if (sp.Color != null)
+                                    {
+                                        @if (isFirstImg)
+                                        {
+                                            <div class="block-color @(sp == colorList.FirstOrDefault() ? "default-color" : "")" style="border: 2px solid @sp.Color.Code">
+                                                <img src="@Url.Content("~/UploadHome/product/variantss/thumb/" + sp.Image)" alt="" data-color-id="@sp.ColorId" data-content="@sp.Color.Name">
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <div style="border: 2px solid @sp.Color.Code" class="block-color">
+                                                <img src="@Url.Content("~/UploadHome/product/variantss/thumb/" + sp.Image)" alt="" data-color-id="@sp.ColorId" data-content="@sp.Color.Name">
+                                            </div>
+                                        }
+                                        isFirstImg = false;
+                                    }
+                                }
+                        </div>
+                    }
+                </div>
+
+                <div class="summary-size">
+                    <div>
+                        Size
+                        <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                    <div>
+                        <p class="product-size-guide">Size Guide</p>
+                        <div class="product-size">
+                            @foreach (var sp in variants)
+                            {
+                                if (sp.Size != null)
+                                {
+                                        <div class="group-color-@sp.ColorId" data-size-id="@sp.SizeId">@sp.Size.Name</div>
+                                }
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div class="summary-button">
+                    <button class="js-btn-add-cart">Add to cart</button>
+                    <p id="notification-add-cart"></p>
+                </div>
+                <div>
+                    <pre>@product.Description
+                    </pre>
+                </div>
+            </div>
+
+            <div class="detail-reference">
+                <div class="reference-title">
+                    <div>
+                        PRODUCTS DETAILS
+                        <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                    <p>
+                        @product.Detail
+                    </p>
+                </div>
+                <div class="reference-title">
+                    <div>
+                        CARE
+                        <i class="ri-arrow-down-s-line"></i>
+                    </div>
+                    <pre>
+                        @product.Care
+                    </pre>
+                </div>
+            </div>
+        </div>
+    }
+}
+</div>

@@ -5,101 +5,213 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
+@section Styles {
+<style>
+    .table th,
+    .table td {
+        padding: 8px;
+        max-width: 200px; 
+    }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+</style>
+
+}
+
 @section Title {
-    <h1>Variants</h1>
+<ol class="breadcrumb">
+	<li class="breadcrumb-item">
+		<i class="bi bi-stickies"></i>
+	</li>
+	<li class="breadcrumb-item breadcrumb-active" aria-current="Variantss">Variantss</li>
+</ol>
 }
-@section Content {
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Title)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Slug)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Image)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.UpdatedAt)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Color)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Product)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Promotion)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Size)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Title)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Slug)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Image)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.UpdatedAt)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Color.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Product.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Promotion.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Size.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
+
+@section Search {
+    <form asp-action="Index" method="get">
+        <div class="input-group">
+            <input type="text" name="searchString" class="form-control" placeholder="Search">
+            <button class="btn" type="submit">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </form>
 }
-    </tbody>
-</table>
+
+@section Contentmain {
+	<!-- Content wrapper start -->
+	<div class="content-wrapper">
+
+		<!-- Row start -->
+		<div class="row gx-3">
+			<div class="col-sm-12 col-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">View
+                            <button onclick="window.location.href='/Admin/Variantsses'" style="margin-left: 32px; margin-bottom: 8px; border: 1px solid; padding: 0px 10px; font-size: 16px; border-radius: 12px;">refesh</button>
+						</div>
+							@* <a href="#">
+								<button id="delete-variantss" class="w-40 btn btn-success btn-rounded" style="color: black;">Delete</button>
+							</a> *@
+						</div>
+					</div>
+
+					<div class="card-body">
+						<div class="table-responsive">
+							<table class="table v-middle m-0">
+								<thead>
+									<tr>
+										<th>ID</th>
+										<th>title</th>
+                                        <th>ProductId</th>
+										<th>Size</th>
+                                        <th>Color</th>
+                                        <th>Promo</th>
+                                        <th>QTY</th>
+                                        <th>price</th>
+                                        <th>Image Tag</th>
+										<th>Create At</th>
+										<th>Update At</th>
+										<th>Status</th>
+										<th>Actions</th>
+									</tr>
+								</thead>
+								<tbody>
+									@foreach (var item in Model) {
+										<tr>
+											<td>
+												<p>@item.Id</p>
+											</td>
+											<td>
+												<p>@item.Title</p>
+											</td>
+                                            <td>
+                                                <p>@item.ProductId</p>
+											</td>
+                                            <td>
+                                                <p>@item.Size.Name</p>
+											</td>
+                                            <td>
+                                                <p>@item.Color.Name</p>
+											</td>
+                                            <td>
+                                                <p>@item.Promotion?.Value</p>
+											</td>
+                                            <td>
+												<p>@item.Quantity</p>
+											</td>
+                                            <td>
+                                                <p>@item.Price</p>
+											</td>
+                                            <td>
+                                                <img style="width: 20px; height: 20px" src="@Url.Content("~/UploadHome/product/variantss/thumb/" + item.Image)" alt="">
+                                            </td>
+											    <td>@item.CreatedAt</td>
+											<td>@item.UpdatedAt</td>
+                                            <td id="status-id-@item.Id">
+                                                @if (item.Status == 1)
+                                                {
+                                                    <span class="badge shade-green min-70">Active</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge shade-red min-70">block</span>
+                                                }
+                                            </td>
+											<td>
+												<div class="actions">
+													<div class="icon">
+                                                        <a asp-area="Admin" asp-controller="Products" asp-action="Edit" asp-route-id="@item.ProductId"><i class="bi bi-pencil-square"></i></a>
+													</div>
+													<div class="icon">
+														<input type="checkbox" class="form-check-input" style="margin: 6px 0px 6px 6px" data-variant-id="@item.Id">
+													</div>
+												</div>
+											</td>
+										</tr>
+                                        }
+
+								</tbody>
+							</table>
+							<nav aria-label="Page Navigation" style="margin-top: 40px">
+                                <ul class="pagination">
+                                    @if (ViewData["PageCount"] is int pageCount && ViewData["PageNumber"] is int pageNumber)
+                                    {
+                                        for (int i = 1; i <= pageCount; i++)
+                                        {
+                                            <li class="page-item @(i == pageNumber ? "active" : "")">
+                                                <a class="page-link" href="?page=@i">@i</a>
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+								
+							</nav>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- Row end -->
+
+	</div>
+	<!-- Content wrapper end -->
+}
+
+@section Scripts {
+<script>
+// DELETE
+
+const selectedVariants = [];
+
+$('.form-check-input').on('change', function() {
+    const id = $(this).data('variant-id');
+    if ($(this).is(':checked')) {
+        selectedVariants.push(id);
+    } else {
+        const selectedIndex = selectedVariants.indexOf(id);
+        if (selectedIndex !== -1) {
+            selectedVariants.splice(selectedIndex, 1);
+        }
+    }
+});
+
+$('#delete-variantss').on('click', function(event) {
+    event.preventDefault();
+    if (selectedVariants.length > 0) {
+        if (confirm('Are you sure you want to delete the selected variants?')) {
+            selectedVariants.forEach(function(id) {
+                deleteVariant(id);
+            });
+        }
+    } else {
+        alert('Please select at least one variant to delete');
+    }
+});
+
+        function deleteVariant(id) {
+            console.log(id);
+            $.ajax({
+                url: '/Admin/Variantsses/Delete/' + id,
+                type: 'POST',
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader("RequestVerificationToken", $('input[name="__RequestVerificationToken"]').val());
+                },
+                success: function (response) {
+                    console.log("Xóa thành công!");
+                    window.location.reload();
+                },
+                error: function (xhr, status, error) {
+                    console.error("Đã xảy ra lỗi: " + error);
+                }
+            });
+        }
+</script>
+
 }

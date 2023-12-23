@@ -7,16 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="Controllers\favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="Views\Home\Index\_indexFirstPartial.cshtml" />
     <None Include="Views\Home\Index\_indexSecondPartial.cshtml" />
     <None Include="Views\Home\Index\_indexThirdPartial.cshtml" />
     <None Include="Views\Home\Index\_indexvideoPartial.cshtml" />
-    <None Include="Views\Home\Categories\Categories.cshtml" />
-    <None Include="Views\Home\Categories\_categoriesInstagramPartial.cshtml" />
-    <None Include="Views\Home\Categories\_categoriesProductsPartial.cshtml" />
-    <None Include="Views\Home\Categories\_categoriesSliderPartial.cshtml" />
-    <None Include="Views\Home\Categories\_categoriesTopShowPartial.cshtml" />
-    <None Include="Views\Home\Categories\_categoriesTypesOfProductPartial.cshtml" />
+    <None Include="Views\Categories\Index.cshtml" />
+    <None Include="Views\Categories\_categoriesInstagramPartial.cshtml" />
+    <None Include="Views\Categories\_categoriesProductsPartial.cshtml" />
+    <None Include="Views\Categories\_categoriesSliderPartial.cshtml" />
+    <None Include="Views\Categories\_categoriesTopShowPartial.cshtml" />
+    <None Include="Views\Categories\_categoriesTypesOfProductPartial.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,6 +28,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="7.0.12" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="7.0.14" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Runtime" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Client" Version="7.0.14" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.12" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.12">
       <PrivateAssets>all</PrivateAssets>

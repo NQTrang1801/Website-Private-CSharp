@@ -1,41 +1,102 @@
-﻿
+﻿@using Microsoft.AspNetCore.Identity
+@using PrivateWeb.Areas.Identity.Data
+
+@inject SignInManager<PrivateWebUser> SignInManager
+@inject UserManager<PrivateWebUser> UserManager
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-@section Content {
-	<!-- Content wrapper start -->
-	<div class="content-wrapper" style="display: flex; justify-content: center">
 
-			<img style="border-radius: 100%" src="~/home/public/pictures/icon/Logo.png" alt="Max Admin Dashboard" />
-		<!-- Row start -->
 
-		<!-- Row end -->
+@section Contentmain {
+    <h1>Chat </h1>
 
-		<!-- Row start -->
+    <style>
+        /* Form Container */
+        .container {
+            margin-top: 20px;
+            border: 3px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #FFFBF3B3;
+        }
 
-		<!-- Row end -->
+        /* User and Message Input Rows */
+        .row {
+            margin-bottom: 15px;
+        }
 
-		<!-- Row start -->
+        /* User Input */
+        #txtUser {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
 
-		<!-- Row end -->
+        /* Message Input */
+        #txtMessage {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
 
-		<!-- Row start -->
+        #btnSendMessage {
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
 
-		<!-- Row end -->
+            #btnSendMessage:hover {
+                background-color: #45a049;
+            }
 
-		<!-- Row start -->
+        /* Messages List */
+        #messagesList {
+            list-style-type: none;
+            padding: 0;
+        }
 
-		<!-- Row end -->
+        .col-2 {
+            text-align: center;
+            padding: 10px;
+        }
 
-	</div>
-	<!-- Content wrapper end -->
+    </style>
 
-	<!-- App Footer start -->
-	<div class="app-footer">
-		<span>© Private</span>
-	</div>
-	<!-- App footer end -->
+    <div class="container">
+        <div class="row">
+            <div class="col-2">User</div>
+            <div class="col-4"><input readonly type="text" id="txtUser" value="@UserManager.GetUserName(User)" /></div>
+        </div>
+        <div class="row">
+            <div class="col-2">Message</div>
+            <div class="col-4">
+                <textarea id="txtMessage" rows="2"></textarea>
+            </div>
+            <div class="col-6">
+                <input type="button" id="btnSendMessage" value="Send Message" />
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-6">
+            <ul id="messagesList"></ul>
+        </div>
+    </div>
 }
 
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/5.0.0/signalr.min.js"></script>
+    <script src="~/js/chat.js"></script>
+}
