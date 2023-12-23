@@ -8,5 +8,5 @@ Thành viên nhóm Private
 |21521556|Nguyễn Quốc Trạng         |21521556@gm.uit.edu.vn  |
 |21522812|Nguyễn Triệu Vy           |21522812@gm.uit.edu.vn  | 
 
-#link driver private: https://drive.google.com/drive/folders/1inF-Ptd8LHwNWJ6CjKahh6pfN9V5InFV?usp=sharing
-#website private: https://sites.google.com/view/privateteam/home?fbclid=IwAR3ZK5tJMVuBCJJ9oal8FeH6BeC4fTyTU-EzY7i7rKEOmMxslZHo3o8ifqo
+# link driver private: https://drive.google.com/drive/folders/1inF-Ptd8LHwNWJ6CjKahh6pfN9V5InFV?usp=sharing
+# website private: https://sites.google.com/view/privateteam/home?fbclid=IwAR3ZK5tJMVuBCJJ9oal8FeH6BeC4fTyTU-EzY7i7rKEOmMxslZHo3o8ifqo
